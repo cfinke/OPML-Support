@@ -1,0 +1,18 @@
+<!ENTITY opmlExport "OPML Uitvoer">
+<!ENTITY opmlImport "OPML Invoer">
+<!ENTITY exportQuestion "Wat wilt u exporteren?">
+<!ENTITY livemarks "Livemarks">
+<!ENTITY bookmarks "Bladwijzers">
+<!ENTITY all "Alles">
+<!ENTITY cleanLabel "Verwijder mogelijke onjuiste tekens van titels en beschrijvingen">
+<!ENTITY cleanDesc "Het aanvinken van deze optie zal alle teksttekens die niet op een standaard QWERTY toetsenbord voorkomen verwijderen van uw bladwijzer titels en beschrijvingen. Als u een foutmelding krijgt over XML parsing of verkeerde tekens bij het openen van uw uitgevoerde OPML bestanden, gelieve deze optie aan te vinken.">
+<!ENTITY feedsAsLinksLabel "Exporteer livemarks als bladwijzers">
+<!ENTITY feedsAsLinksDesc "Livemarks kunnen geëxporteerd worden als normale bladwijzers die verwijzen naar de site met de livemark.">
+<!ENTITY exportNested "Behoud mappenstructuur bij exporteren.">
+<!ENTITY exportFlat "Exporteer links zonder mappenstructuur.">
+<!ENTITY importNestedDesc "Het OPML bestand bevat verwijzingen georganiseerd in mappen.">
+<!ENTITY importNestedLabel "Maak mappen aan zoals aangegeven door het OPML bestand.">
+<!ENTITY importFlatLabel "Importeer links zonder mappenstructuur aan te maken.">
+<!ENTITY importTypeDesc "Het OPML bestand bevat meerdere types links. Welke types moeten geimporteerd worden?">
+<!ENTITY importLivemarksAsLinksDesc "Livemarks kunnen geimporteerd worden als normale bladwijzers die verwijzen naar de site met de livemark.">
+<!ENTITY importLivemarksAsLinksLabel "Importeer livemarks als bladwijzers">

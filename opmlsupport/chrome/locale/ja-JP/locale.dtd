@@ -1,0 +1,18 @@
+<!ENTITY opmlExport "OPML エクスポート">
+<!ENTITY opmlImport "OPML インポート">
+<!ENTITY exportQuestion "何をエクスポートしますか?">
+<!ENTITY livemarks "ライブブックマーク">
+<!ENTITY bookmarks "ブックマーク">
+<!ENTITY all "すべて">
+<!ENTITY cleanLabel "タイトルと説明から不適切な可能性がある文字を除去">
+<!ENTITY cleanDesc "このチェックボックスをチェックすると、ブックマークの名前と説明から、一般的なQWERTYキーボードに現れない文字をすべて取り除きます。エクスポートされたOPMLファイルを開くとき、XMLのパースまたは不正文字についてのエラーが出るようなら、これをチェックしたままにしてください。">
+<!ENTITY feedsAsLinksLabel "ライブブックマークをブックマークとしてエクスポート">
+<!ENTITY feedsAsLinksDesc "ライブブックマークは、そのライブブックマークを提供するサイトにリンクする、通常のブックマークとしてエクスポートされます。">
+<!ENTITY exportNested "エクスポート時にフォルダ構造を維持">
+<!ENTITY exportFlat "フォルダ情報なしでエクスポート">
+<!ENTITY importNestedDesc "このOPMLファイルはフォルダに整理されたリンクを含んでいます。">
+<!ENTITY importNestedLabel "OPMLファイルにしたがってフォルダを作成">
+<!ENTITY importFlatLabel "フォルダ生成せずにリンクをインポート">
+<!ENTITY importTypeDesc "このOPMLファイルは複数の種類のリンクを含んでいます。インポートしたいのはどちらの種類ですか?">
+<!ENTITY importLivemarksAsLinksDesc "ライブブックマークは、そのライブブックマークを提供するサイトにリンクする、通常のブックマークとしてインポートされます。">
+<!ENTITY importLivemarksAsLinksLabel "ライブブックマークをブックマークとしてインポート">

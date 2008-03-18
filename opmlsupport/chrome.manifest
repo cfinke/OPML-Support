@@ -1,0 +1,14 @@
+content     opml-support     chrome/content/
+skin        opml-support     classic             chrome/skin/
+
+locale      opml-support     de-DE               chrome/locale/de-DE/
+locale      opml-support     en-US               chrome/locale/en-US/
+locale      opml-support     fr-FR               chrome/locale/fr-FR/
+locale      opml-support     it-IT               chrome/locale/it-IT/
+locale      opml-support     ja-JP               chrome/locale/ja-JP/
+locale      opml-support     ko-KR               chrome/locale/ko-KR/
+locale      opml-support     nl-NL               chrome/locale/nl-NL/
+
+overlay     chrome://browser/content/bookmarks/bookmarksManager.xul chrome://opml-support/content/overlay.xul
+
+overlay     chrome://browser/content/places/places.xul   chrome://opml-support/content/overlay-places.xul

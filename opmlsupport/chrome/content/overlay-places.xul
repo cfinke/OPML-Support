@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE overlay SYSTEM "chrome://opml-support/locale/locale.dtd">
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript" src="chrome://opml-support/content/opml-support.js"></script>
+	<window id="places">
+		<stringbundleset id="stringbundleset">
+			<stringbundle id="opml-support-bundle" src="chrome://opml-support/locale/locale.properties" />
+		</stringbundleset>
+		<commandset id="mainCommandSet">
+			<command id="opml-support-import" oncommand="OPMLSUPPORT.importOPML();" />
+			<command id="opml-support-export" oncommand="OPMLSUPPORT.exportOPML_places();" />
+		</commandset>
+	</window>
+	<menupopup id="maintenanceButtonPopup">
+		<menuitem id="opmlImport" label="&opmlImport;" insertafter="fileImport" command="opml-support-import" />
+		<menuitem id="opmlExport" label="&opmlExport;" insertafter="fileExport" command="opml-support-export" />
+	</menupopup>
+</overlay>

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://opml-support/locale/locale.dtd">
+<dialog
+	title="&opmlImport;"
+	buttons="accept,cancel"
+	orient="vertical"
+	style="max-width: 30em;"
+	ondialogaccept="acceptDialog();"
+	ondialogcancel="cancelDialog();"
+	onload="window.sizeToContent();"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<groupbox id="nested-options" style="display: none;">
+		<radiogroup>
+			<description>&importNestedDesc;</description>
+			<radio id="import-nested" selected="true" label="&importNestedLabel;" />
+			<radio id="import-flat" label="&importFlatLabel;" />
+		</radiogroup>
+	</groupbox>
+	<groupbox id="link-types" style="display: none;">
+		<description>&importTypeDesc;</description>
+		<checkbox id="import-links" label="&bookmarks;" checked="true" />
+		<checkbox id="import-feeds" label="&livemarks;" checked="true" />
+	</groupbox>
+	<groupbox id="feeds-as-links-section" style="display: none;">
+		<description>&importLivemarksAsLinksDesc;</description>
+		<checkbox id="import-feeds-as-links" label="&importLivemarksAsLinksLabel;" checked="false" />
+	</groupbox>
+	<script type="application/x-javascript">
+		<![CDATA[
+		
+		// The import array is in window.arguments[0]
+		// The count of items is in window.arguments[1]
+		var items = window.arguments[0];
+		var counts = window.arguments[1];
+		
+		if (counts.folders > 0){
+			document.getElementById("nested-options").style.display = '';
+		}
+		
+		if ((counts.links > 0) && (counts.feeds > 0)) {
+			document.getElementById("link-types").style.display = '';
+		}
+		
+		if (counts.feeds > 0){
+			document.getElementById("feeds-as-links-section").style.display = '';
+		}
+		
+		document.getElementById("import-feeds").onchange = function () {
+			if (this.checked){
+				document.getElementById("import-feeds-as-links").setAttribute("disabled","false");
+			}
+			else {
+				document.getElementById("import-feeds-as-links").checked = false;
+				document.getElementById("import-feeds-as-links").setAttribute("disabled","true");
+			}
+		};
+		
+		document.getElementById("import-feeds").onchange();
+		
+		function acceptDialog(){
+			var nested = false;
+			var links = true;
+			var feeds = true;
+			var feedsAs = 'feeds';
+			
+			if (counts.folders == 0){
+				nested = false;
+			}
+			else {
+				nested = document.getElementById("import-nested").selected;
+			}
+			
+			links = document.getElementById("import-links").checked;
+			feeds = document.getElementById("import-feeds").checked;
+			
+			if (document.getElementById("import-feeds-as-links").checked){
+				feedsAs = 'links';
+			}
+			
+			window.opener.OPMLSUPPORT.importLevel(items, null, nested, links, feeds, feedsAs);
+			
+			document.getElementById("feeds-as-links-section").style.display = 'none';
+			document.getElementById("link-types").style.display = 'none';
+			document.getElementById("nested-options").style.display = 'none';
+		}
+		
+		function cancelDialog(){
+			document.getElementById("feeds-as-links-section").style.display = 'none';
+			document.getElementById("link-types").style.display = 'none';
+			document.getElementById("nested-options").style.display = 'none';
+		}
+		
+		]]>
+	</script>
+</dialog>
+	
+	
