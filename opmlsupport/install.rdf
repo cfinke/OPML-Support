@@ -9,9 +9,7 @@
                    em:description="Adds OPML import/export functionality to the Firefox Bookmarks Manager."
                    em:creator="Christopher Finke"
                    em:homepageURL="http://www.chrisfinke.com/addons/opml-support/"
-                   em:iconURL="chrome://opml-support/skin/icon.gif"><!--
-                   em:updateURL="http://www.chrisfinke.com/files/updaters/opml-support.rdf"
-                   em:updateKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDojW2744Lq71yIACHOEkj5O5hvvMdhh1+ebnjiTmfrnK/Q51KfdXOHy6hRI3K/F3EyMLgWpR4sEuLCA23whhzZJAxL/3Hv+GTHnRJGJQG0zFRy69y9Docko5yJZb7nX0z6wHFKZPbza9S/qrX/beZRlK52/KlVYTmNtb2ZquXscwIDAQAB"> -->
+                   em:iconURL="chrome://opml-support/skin/icon.gif">
     <em:targetApplication RDF:resource="rdf:#$ZaYzA"/>
   </RDF:Description>
   <RDF:Description RDF:about="rdf:#$ZaYzA"
