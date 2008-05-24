@@ -167,7 +167,19 @@ var OPMLSUPPORT = {
 		for (var i = 0; i < nodes.length; i++){
 			if (nodes[i].type == 'folder'){	
 				if (nested) {
-					var newCreateIn = createIn.addFolder(nodes[i].title);
+					if (nodes[i].title == "Bookmarks Menu") {
+						var newCreateIn = Application.bookmarks.menu;
+					}
+					else if (nodes[i].title == "Bookmarks Toolbar") {
+						var newCreateIn = Application.bookmarks.toolbar;
+					}
+					else if (nodes[i].title == "Unfiled Bookmarks") {
+						var newCreateIn = Application.bookmarks.unfiled;
+					}
+					else {
+						var newCreateIn = createIn.addFolder(nodes[i].title);
+					}
+					
 					this.importLevel_new(nodes[i].children, newCreateIn, true, links, feeds, feedsAs);
 				}
 				else {
@@ -181,7 +193,7 @@ var OPMLSUPPORT = {
 					if (feedsAs == 'feeds'){
 						var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"].getService(Components.interfaces.nsILivemarkService);
 						var feedUri = ioService.newURI(nodes[i].feedURL, null, null);
-						var lm = livemarkService.createLivemarkFolderOnly(bmsvc, createIn.id, nodes[i].title, uri, feedUri, -1);
+						var lm = livemarkService.createLivemarkFolderOnly(createIn.id, nodes[i].title, uri, feedUri, -1);
 						annotationService.setItemAnnotation(lm, "bookmarkProperties/description", nodes[i].desc, 0, Components.interfaces.nsIAnnotationService.EXPIRE_NEVER);
 					}
 					else {
@@ -373,37 +385,39 @@ var OPMLSUPPORT = {
 				data += '<outline text="' + OPMLSUPPORT.cleanXMLText(root.title) + '">' + "\n";
 			}
 	
-			for (var i = 0; i < root.children.length; i++) {
-				var node = root.children[i];
-				opmllog(node.type);
+			if (root.children) {
+				for (var i = 0; i < root.children.length; i++) {
+					var node = root.children[i];
+					opmllog(node.type);
 				
-				if ((node.type == "bookmark") || (node.type == "folder")){
-					// No separators for us.
-					if ((node.type == "folder") && (!livemarkService.isLivemark(node.id))) {
-						iterate(node);
-					}
-					else {
-						var title = node.title || '';
-						var description = node.description || '';
-						
-						if (node.type == 'bookmark') {
-							var url = node.uri.spec || '';
-							var keyword = node.keyword || '';
+					if ((node.type == "bookmark") || (node.type == "folder")){
+						// No separators for us.
+						if ((node.type == "folder") && (!livemarkService.isLivemark(node.id))) {
+							iterate(node);
 						}
 						else {
-							var xmlUrl = livemarkService.getFeedURI(node.id).spec;
-							var url = livemarkService.getSiteURI(node.id).spec;
-							var keyword = "";
-						}
+							var title = node.title || '';
+							var description = node.description || '';
 						
-						if ((links && (node.type == 'bookmark')) || (feeds && (node.type == 'folder') && (feedMode == 'links'))) {
-							// Bookmark or Livemark as a bookmark
-							data += '<outline type="link" text="' + OPMLSUPPORT.cleanXMLText(title) + '" url ="' + OPMLSUPPORT.cleanXMLText(url) + '" description="'+OPMLSUPPORT.cleanXMLText(description)+'" keyword="'+OPMLSUPPORT.cleanXMLText(keyword)+'" />';
-						}
-						else {
-							if (feeds && (node.type == 'folder') && (feedMode != 'links')) {
-								// Livemark
-								data += '<outline type="rss" version="RSS" text="' + OPMLSUPPORT.cleanXMLText(title) + '" htmlUrl="' + OPMLSUPPORT.cleanXMLText(url) + '" xmlUrl="' + OPMLSUPPORT.cleanXMLText(xmlUrl) + '" description="' + OPMLSUPPORT.cleanXMLText(description) + '"/>' + "\n";
+							if (node.type == 'bookmark') {
+								var url = node.uri.spec || '';
+								var keyword = node.keyword || '';
+							}
+							else {
+								var xmlUrl = livemarkService.getFeedURI(node.id).spec;
+								var url = livemarkService.getSiteURI(node.id).spec;
+								var keyword = "";
+							}
+						
+							if ((links && (node.type == 'bookmark')) || (feeds && (node.type == 'folder') && (feedMode == 'links'))) {
+								// Bookmark or Livemark as a bookmark
+								data += '<outline type="link" text="' + OPMLSUPPORT.cleanXMLText(title) + '" url ="' + OPMLSUPPORT.cleanXMLText(url) + '" description="'+OPMLSUPPORT.cleanXMLText(description)+'" keyword="'+OPMLSUPPORT.cleanXMLText(keyword)+'" />';
+							}
+							else {
+								if (feeds && (node.type == 'folder') && (feedMode != 'links')) {
+									// Livemark
+									data += '<outline type="rss" version="RSS" text="' + OPMLSUPPORT.cleanXMLText(title) + '" htmlUrl="' + OPMLSUPPORT.cleanXMLText(url) + '" xmlUrl="' + OPMLSUPPORT.cleanXMLText(xmlUrl) + '" description="' + OPMLSUPPORT.cleanXMLText(description) + '"/>' + "\n";
+								}
 							}
 						}
 					}

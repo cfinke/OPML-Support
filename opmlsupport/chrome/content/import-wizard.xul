@@ -6,7 +6,7 @@
 	buttons="accept,cancel"
 	orient="vertical"
 	style="max-width: 30em;"
-	ondialogaccept="acceptDialog();"
+	ondialogaccept="return acceptDialog();"
 	ondialogcancel="cancelDialog();"
 	onload="window.sizeToContent();"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
@@ -26,6 +26,9 @@
 		<description>&importLivemarksAsLinksDesc;</description>
 		<checkbox id="import-feeds-as-links" label="&importLivemarksAsLinksLabel;" checked="false" />
 	</groupbox>
+	<hbox pack="center" hidden="true" id="loading-notice">
+		<label value="&opml.loading;" />
+	</hbox>
 	<script type="application/x-javascript">
 		<![CDATA[
 		
@@ -59,6 +62,12 @@
 		document.getElementById("import-feeds").onchange();
 		
 		function acceptDialog(){
+			document.getElementById("loading-notice").hidden = false;
+			setTimeout('continueImport();', 1000);
+			return false;
+		}
+		
+		function continueImport() {
 			var nested = false;
 			var links = true;
 			var feeds = true;
@@ -83,6 +92,8 @@
 			document.getElementById("feeds-as-links-section").style.display = 'none';
 			document.getElementById("link-types").style.display = 'none';
 			document.getElementById("nested-options").style.display = 'none';
+			
+			window.close();
 		}
 		
 		function cancelDialog(){

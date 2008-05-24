@@ -14,3 +14,4 @@
 <!ENTITY importTypeDesc "The OPML file contains multiple types of links. Which types should be imported?">
 <!ENTITY importLivemarksAsLinksDesc "Livemarks can be imported as normal bookmarks that link to the site that provides the feed.">
 <!ENTITY importLivemarksAsLinksLabel "Import livemarks as bookmarks">
+<!ENTITY opml.loading "Processing bookmarks...">
