@@ -16,3 +16,4 @@ cd ../
 zip -rq ../opmlsupport.xpi *
 cd ../
 rm -rf .tmp_xpi_dir/
+cp opmlsupport.xpi ~/Desktop/
