@@ -99,13 +99,13 @@ var OPMLSUPPORT = {
 		if (res == nsIFilePicker.returnOK) {
 			//read any xml file by using XMLHttpRequest.
 			//any character code is converted to native unicode automatically.
-			var fix = Components.classes['@mozilla.org/docshell/urifixup;1'].getService(Components.interfaces.nsIURIFixup);
-			var url = fix.createFixupURI(fp.file.path, fix.FIXUP_FLAG_ALLOW_KEYWORD_LOOKUP);
-		
+			var url = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newFileURI(fp.file);
+			
 			var reader = new XMLHttpRequest();
 			reader.open("GET", url.spec, false);
 			reader.overrideMimeType("application/xml");
 			reader.send(null);
+			
 			var opmldoc = reader.responseXML;
 			
 			var results = [];
