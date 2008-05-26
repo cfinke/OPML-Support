@@ -1,13 +1,14 @@
 content     opml-support     jar:chrome/opmlsupport.jar!/content/
 skin        opml-support     classic             jar:chrome/opmlsupport.jar!/skin/
 
-#locale      opml-support     de-DE               jar:chrome/opmlsupport.jar!/locale/de-DE/
+locale      opml-support     de-DE               jar:chrome/opmlsupport.jar!/locale/de-DE/
 locale      opml-support     en-US               jar:chrome/opmlsupport.jar!/locale/en-US/
-#locale      opml-support     fr-FR               jar:chrome/opmlsupport.jar!/locale/fr-FR/
-#locale      opml-support     it-IT               jar:chrome/opmlsupport.jar!/locale/it-IT/
-#locale      opml-support     ja-JP               jar:chrome/opmlsupport.jar!/locale/ja-JP/
-#locale      opml-support     ko-KR               jar:chrome/opmlsupport.jar!/locale/ko-KR/
-#locale      opml-support     nl-NL               jar:chrome/opmlsupport.jar!/locale/nl-NL/
+locale      opml-support     fr-FR               jar:chrome/opmlsupport.jar!/locale/fr-FR/
+locale      opml-support     it-IT               jar:chrome/opmlsupport.jar!/locale/it-IT/
+locale      opml-support     ja-JP               jar:chrome/opmlsupport.jar!/locale/ja-JP/
+locale      opml-support     ko-KR               jar:chrome/opmlsupport.jar!/locale/ko-KR/
+locale      opml-support     nl-NL               jar:chrome/opmlsupport.jar!/locale/nl-NL/
+locale      opml-support     pl-PL               jar:chrome/opmlsupport.jar!/locale/pl-PL/
 
 overlay     chrome://browser/content/bookmarks/bookmarksManager.xul chrome://opml-support/content/overlay.xul
 
