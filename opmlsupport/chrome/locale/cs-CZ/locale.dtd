@@ -1,0 +1,5 @@
+<!ENTITY opmlExport "Export OPML...">
+<!ENTITY opmlImport "Import OPML...">
+<!ENTITY exportQuestion "Co chcete exportovat?">
+<!ENTITY bookmarks "Záložky">
+<!ENTITY all "Vše">

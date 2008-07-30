@@ -4,8 +4,6 @@
 <!ENTITY livemarks "라이브마크">
 <!ENTITY bookmarks "북마크">
 <!ENTITY all "모두">
-<!ENTITY cleanLabel "제목과 설명에서 가능한한 유효하지 않은 글자를 제거">
-<!ENTITY cleanDesc "이 상자를 검사하는 것은 당신의 북마크 제목 과 설명에서 표준 쿼티 키보드로 나타낼수 없는 모든 문자들을 제거할 것입니다. 만약, 내보내려는 OPML파일을 열려고 할때, XML 분석하거나 유효하지 않은 문자에 관한 오류를 받는 경우, 이 상자의 체크 표시를 남겨두십시오.">
 <!ENTITY feedsAsLinksLabel "북마크로 라이브마크를 내보내기">
 <!ENTITY feedsAsLinksDesc "라이브마크는 라이브마크를 제공하는 사이트를 연결하는 일반 북마크로 내보내질 수 있습니다.">
 <!ENTITY exportNested "내보낼때 폴더 구조 유지">
@@ -15,4 +13,5 @@
 <!ENTITY importFlatLabel "폴더 생성없이 링크로 불러오기">
 <!ENTITY importTypeDesc "OPML 파일이 여러 종류의 링크를 포함하고 있습니다. 어떤 종류를 불러오겠습니까?">
 <!ENTITY importLivemarksAsLinksDesc "라이브마크는 라이브마크를 제공하는 사이트를 연결하는 일반 북마크로 불러올 수 있습니다.">
-<!ENTITY importLivemarksAsLinksLabel "북바크로 라이브마크 불러오기">
+<!ENTITY importLivemarksAsLinksLabel "북마크로 라이브마크 불러오기">
+<!ENTITY opml.loading "북마크 작업중...">

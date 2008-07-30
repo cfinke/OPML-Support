@@ -4,8 +4,6 @@
 <!ENTITY livemarks "Livemarks">
 <!ENTITY bookmarks "Bladwijzers">
 <!ENTITY all "Alles">
-<!ENTITY cleanLabel "Verwijder mogelijke onjuiste tekens van titels en beschrijvingen">
-<!ENTITY cleanDesc "Het aanvinken van deze optie zal alle teksttekens die niet op een standaard QWERTY toetsenbord voorkomen verwijderen van uw bladwijzer titels en beschrijvingen. Als u een foutmelding krijgt over XML parsing of verkeerde tekens bij het openen van uw uitgevoerde OPML bestanden, gelieve deze optie aan te vinken.">
 <!ENTITY feedsAsLinksLabel "Exporteer livemarks als bladwijzers">
 <!ENTITY feedsAsLinksDesc "Livemarks kunnen geëxporteerd worden als normale bladwijzers die verwijzen naar de site met de livemark.">
 <!ENTITY exportNested "Behoud mappenstructuur bij exporteren.">

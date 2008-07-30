@@ -4,8 +4,6 @@
 <!ENTITY livemarks "ライブブックマーク">
 <!ENTITY bookmarks "ブックマーク">
 <!ENTITY all "すべて">
-<!ENTITY cleanLabel "タイトルと説明から不適切な可能性がある文字を除去">
-<!ENTITY cleanDesc "このチェックボックスをチェックすると、ブックマークの名前と説明から、一般的なQWERTYキーボードに現れない文字をすべて取り除きます。エクスポートされたOPMLファイルを開くとき、XMLのパースまたは不正文字についてのエラーが出るようなら、これをチェックしたままにしてください。">
 <!ENTITY feedsAsLinksLabel "ライブブックマークをブックマークとしてエクスポート">
 <!ENTITY feedsAsLinksDesc "ライブブックマークは、そのライブブックマークを提供するサイトにリンクする、通常のブックマークとしてエクスポートされます。">
 <!ENTITY exportNested "エクスポート時にフォルダ構造を維持">

@@ -1,11 +1,9 @@
-<!ENTITY opmlExport "Esporta OPML">
-<!ENTITY opmlImport "Importa OPML">
+<!ENTITY opmlExport "Esporta OPML…">
+<!ENTITY opmlImport "Importa OPML…">
 <!ENTITY exportQuestion "Elementi da esportare:">
 <!ENTITY livemarks "segnalibri Live">
 <!ENTITY bookmarks "segnalibri">
 <!ENTITY all "tutti">
-<!ENTITY cleanLabel "Elimina i caratteri probabilmente non validi da titoli e descrizioni">
-<!ENTITY cleanDesc "Selezionando questa opzione verranno eliminati da titoli e descrizioni dei segnalibri tutti i caratteri che non compaiono su una tastiera QWERTY standard. Se, all&apos;apertura del file OPML esportato, si riceve un errore di analisi XML o di caratteri non validi, lasciare selezionata questa opzione">
 <!ENTITY feedsAsLinksLabel "Esporta i segnalibri Live come segnalibri">
 <!ENTITY feedsAsLinksDesc "I segnalibri Live possono essere esportati come normali segnalibri che collegano al sito che li fornisce">
 <!ENTITY exportNested "Nell&apos;esportazione conserva la struttura delle cartelle">
@@ -16,3 +14,4 @@
 <!ENTITY importTypeDesc "Il file OPML contiene molteplici tipi di link. Scegliere quali importare">
 <!ENTITY importLivemarksAsLinksDesc "I segnalibri Live possono essere importati come normali segnalibri che collegano al sito che li fornisce">
 <!ENTITY importLivemarksAsLinksLabel "Importa i segnalibri Live come segnalibri">
+<!ENTITY opml.loading "Elaborazione dei segnalibri in corso...">

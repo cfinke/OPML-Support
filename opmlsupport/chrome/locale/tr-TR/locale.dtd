@@ -1,0 +1,17 @@
+<!ENTITY opmlExport "OPML dışa aktar...">
+<!ENTITY opmlImport "OPML içe aktar...">
+<!ENTITY exportQuestion "Dışa ne aktarmak istiyorsunuz?">
+<!ENTITY livemarks "Canlı Yer İmleri (Beslemeler)">
+<!ENTITY bookmarks "Yer İmleri">
+<!ENTITY all "Tümü">
+<!ENTITY feedsAsLinksLabel "Canlı yer imlerini yer imleri olarak dışa aktar">
+<!ENTITY feedsAsLinksDesc "Canlı yer imleri, beslemeyi sağlayan siteye bağlantılanan normal yer imleri olarak dışa aktarılabilir.">
+<!ENTITY exportNested "Dışa aktarırken klasör yapısını koru.">
+<!ENTITY exportFlat "Bağlantıları klasör verisi olmadan dışa aktar.">
+<!ENTITY importNestedDesc "OPML dosyası klasörler halinde tertiplenmiş bağlantılar içeriyor.">
+<!ENTITY importNestedLabel "OPML dosyasının belirttiği şekilde klasörler oluştur.">
+<!ENTITY importFlatLabel "Bağlantıları klasörler oluşturmadan içe aktar.">
+<!ENTITY importTypeDesc "OPML dosyası birden fazla türde bağlantılar içeriyor. Hangi tür içe aktarılsın?">
+<!ENTITY importLivemarksAsLinksDesc "Canlı yer imleri, beslemeyi sağlayan siteye bağlantılanan normal yer imleri olarak içe aktarılabilir.">
+<!ENTITY importLivemarksAsLinksLabel "Canlı yer imlerini yer imleri olarak içe aktar">
+<!ENTITY opml.loading "Yer imleri işleniyor...">
