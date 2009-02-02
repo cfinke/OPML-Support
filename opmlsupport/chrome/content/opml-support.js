@@ -234,7 +234,7 @@ var OPMLSUPPORT = {
 					else {
 						var uri = ioService.newURI(node.url, null, null);
 
-						if (feeds && (nodeType == 'feed')){
+						if (feeds && (nodeType == 'feed' || nodeType == 'atom')){
 							if (feedsAs == 'feeds'){
 								var feedUri = ioService.newURI(node.feedURL, null, null);
 								var lm = livemarkService.createLivemarkFolderOnly(createIn.id, nodeTitle, uri, feedUri, -1);
@@ -281,7 +281,7 @@ var OPMLSUPPORT = {
 				}
 			}
 			else {
-				if ((nodes[i].type == 'feed') && feeds){
+				if ((nodes[i].type == 'feed' || nodes[i].type == 'atom') && feeds){
 					if (feedsAs == 'feeds'){
 						BMSVC.createLivemarkInContainer(nodes[i].title, nodes[i].url, nodes[i].feedURL, nodes[i].desc, createIn, null);
 					}
