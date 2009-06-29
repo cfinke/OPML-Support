@@ -1,5 +1,5 @@
-<!ENTITY opmlExport "Exportation &quot;OPML&quot;">
-<!ENTITY opmlImport "Importation &quot;OPML&quot;">
+<!ENTITY opmlExport "Exportation « OPML »">
+<!ENTITY opmlImport "Importation « OPML »">
 <!ENTITY exportQuestion "Que voulez-vous exporter ?">
 <!ENTITY livemarks "Marque-pages dynamiques">
 <!ENTITY bookmarks "Marque-pages">

@@ -1,0 +1,17 @@
+<!ENTITY opmlExport "Изнеси OPML...">
+<!ENTITY opmlImport "Внеси OPML...">
+<!ENTITY exportQuestion "Што сакате да изнесите?">
+<!ENTITY livemarks "Livemarks (Feeds)">
+<!ENTITY bookmarks "Обележувачи">
+<!ENTITY all "Сите">
+<!ENTITY feedsAsLinksLabel "Изнеси ги livemarks како обележувачи">
+<!ENTITY feedsAsLinksDesc "Livemarks можат да бидат изнесени како нормални обележувачи кои поврзуваат до страницата што обезбедува дотур(feed).">
+<!ENTITY exportNested "Задржи ја структурата на папката кога се изнесува.">
+<!ENTITY exportFlat "Изнеси ги врските без податоците на папката.">
+<!ENTITY importNestedDesc "OPML датотеката содржи врски организирани во папки.">
+<!ENTITY importNestedLabel "Креирај папки како што е назначено од OPML датотеката.">
+<!ENTITY importFlatLabel "Внеси врски без креирање папки.">
+<!ENTITY importTypeDesc "OPML датотеката содржи повеќекратни типови на врски. Кои типови сакате да ги внесите?">
+<!ENTITY importLivemarksAsLinksDesc "Livemarks можат да бидат внесени како нормални обележувачи кои поврзуваат до страницата што обезбедува дотур(feed).">
+<!ENTITY importLivemarksAsLinksLabel "Внеси livemarks како обележувачи">
+<!ENTITY opml.loading "Обработување на обележувачите...">
