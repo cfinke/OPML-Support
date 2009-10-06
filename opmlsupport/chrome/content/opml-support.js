@@ -1,124 +1,6 @@
 var OPMLSUPPORT = {
 	get strings() { return document.getElementById("opml-support-bundle"); },
 
-	importMenu : null,
-	exportMenu : null,
-	
-	importOption : null,
-	exportOption : null,
-	
-	currentExport : '',
-	
-	lastTime : null,
-	firstTime : null,
-	totalToImport : 0,
-	
-	agg : {},
-	
-	onload : function (event) {
-		this.addMenuOptions();
-	},
-	
-	reportTime : function (label) {
-		var date = new Date();
-		
-		if (this.lastTime) timeSince = date.getTime() - this.lastTime.getTime();
-		else timeSince = 0;
-		
-		if (!this.firstTime) {
-			this.firstTime = date;
-			timeSinceFirst = 0;
-		}
-		else {
-			timeSinceFirst = date.getTime() - this.firstTime.getTime();
-		}
-		
-		this.lastTime = date;
-		
-		var consoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
-		if (!this.agg[label]) this.agg[label] = timeSince;
-		else this.agg[label] += timeSince;
-		consoleService.logStringMessage("OPML: " + label + " " + (date.getTime()) + " (" + timeSince + ") (" + timeSinceFirst+ ")");
-	},
-	
-	reportAllTime : function () {
-	    for (var i in this.agg) {
-	        opmllog(i + ": " + this.agg[i]);
-        }
-    },
-	
-	addMenuOptions : function () {
-		var menubar = document.getElementById('main-menubar');
-		var importOption, exportOption;
-		
-		for (var i = 0; i < menubar.childNodes.length; i++){
-			var menu = menubar.childNodes[i];
-			
-			for (var j = 0; j < menu.firstChild.childNodes.length; j++){	
-				if (importOption && exportOption) {
-					break;
-				}
-
-				if (menu.firstChild.childNodes[j].getAttribute("command") == "cmd_bm_import"){
-					importOption = menu.firstChild.childNodes[j];
-				}
-				else if (menu.firstChild.childNodes[j].getAttribute("command") == "cmd_bm_export"){
-					exportOption = menu.firstChild.childNodes[j];
-				}
-			}
-			
-			if (importOption && exportOption) {
-				break;
-			}
-		}
-		
-		if (!(importOption && exportOption)){
-			alert(this.strings.getString("noOptions"));
-			return false;
-		}
-
-		this.importMenu = document.createElement('menu');
-		this.importMenu.setAttribute("label",this.strings.getString("import"));
-		this.importMenu.setAttribute("accesskey",this.strings.getString("importKey"));
-		this.importMenu.appendChild(document.createElement('menupopup'));
-		
-		this.exportMenu = document.createElement('menu');
-		this.exportMenu.setAttribute("label",this.strings.getString("export"));
-		this.exportMenu.setAttribute("accesskey",this.strings.getString("exportKey"));
-		this.exportMenu.appendChild(document.createElement('menupopup'));
-		
-		importOption.parentNode.insertBefore(this.importMenu, importOption);
-		importOption.parentNode.insertBefore(this.exportMenu, importOption);
-
-		importOption.setAttribute("label",this.strings.getString("bookmarks"));
-		exportOption.setAttribute("label",this.strings.getString("bookmarks"));
-		
-		importOption.setAttribute("accesskey",this.strings.getString("bookmarksKey"));
-		exportOption.setAttribute("accesskey",this.strings.getString("bookmarksKey"));
-		
-		importOption.parentNode.removeChild(importOption);
-		exportOption.parentNode.removeChild(exportOption);
-		
-		this.importMenu.firstChild.appendChild(importOption);
-		this.exportMenu.firstChild.appendChild(exportOption);
-		
-		this.importOption = document.createElement('menuitem');
-		this.exportOption = document.createElement('menuitem');
-		
-		this.importOption.setAttribute("label",this.strings.getString("OPML"));
-		this.importOption.setAttribute("accesskey",this.strings.getString("OPMLKey"));
-		this.importOption.setAttribute("command","opml-support-import");
-		
-		this.exportOption.setAttribute("label",this.strings.getString("OPML"));
-		this.exportOption.setAttribute("accesskey",this.strings.getString("OPMLKey"));
-		this.exportOption.setAttribute("command","opml-support-export");
-		
-		this.importMenu.firstChild.appendChild(this.importOption);
-		this.exportMenu.firstChild.appendChild(this.exportOption);
-		
-		return true;
-	},
-	
 	importOPML : function () {
 		var nsIFilePicker = Components.interfaces.nsIFilePicker;
 		var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
@@ -181,119 +63,79 @@ var OPMLSUPPORT = {
 	importLevel : function(nodes, createIn, nested, links, feeds, feedsAs){
 		var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"];
 
-		if (livemarkService) {
-			var ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
-			var bmsvc = Components.classes["@mozilla.org/browser/nav-bookmarks-service;1"].getService(Components.interfaces.nsINavBookmarksService);
-			var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
-			var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"].getService(Components.interfaces.nsILivemarkService);
-			
-			if (!feedsAs) feedsAs = 'feeds';
-			
-			var menu = Application.bookmarks.menu;
-			var toolbar = Application.bookmarks.toolbar;
-			var unfiled = Application.bookmarks.unfiled;
-			
-			var count = 0;
-			var total = OPMLSUPPORT.totalToImport;
-			
-			function _importLevel(nodes, createIn) {
-				if (!createIn){
-					createIn = Application.bookmarks.menu;
-				}
-				
-				var len = nodes.length;
-				
-				for (var i = 0; i < len; i++){
-					var node = nodes[i];
-					var nodeTitle = node.title;
-					var nodeType = node.type;
-					var nodeDesc = node.desc;
-					
-					if (nodeType == 'folder'){	
-						var newCreateIn = createIn;
-						
-						if (nested) {
-							switch (nodeTitle) {
-								case "Bookmarks Menu":
-									newCreateIn = menu;
-								break;
-								case "Bookmarks Toolbar":
-									newCreateIn = toolbar;
-								break;
-								case "Unfiled Bookmarks":
-									newCreateIn = unfiled;
-								break;
-								default:
-									newCreateIn = createIn.addFolder(nodeTitle);
-								break;
-							}
-						}
-						
-						_importLevel(node.children, newCreateIn);
-					}
-					else {
-						var uri = ioService.newURI(node.url, null, null);
-
-						if (feeds && (nodeType == 'feed' || nodeType == 'atom')){
-							if (feedsAs == 'feeds'){
-								var feedUri = ioService.newURI(node.feedURL, null, null);
-								var lm = livemarkService.createLivemarkFolderOnly(createIn.id, nodeTitle, uri, feedUri, -1);
-								annotationService.setItemAnnotation(lm, "bookmarkProperties/description", nodeDesc, 0, Components.interfaces.nsIAnnotationService.EXPIRE_NEVER);
-							}
-							else {
-								var bm = createIn.addBookmark(nodeTitle, uri);
-								bm.description = nodeDesc;
-							}
-						}
-						else if (links && (nodeType == 'link')) {
-							var bm = createIn.addBookmark(nodeTitle, uri);
-							bm.keyword = node.keyword;
-							bm.description = nodeDesc;
-						}
-					}
-				}
-			}
-			
-			_importLevel(nodes, createIn);
-		}
-		else {
-			this.importLevel_old(nodes, createIn, nested, links, feeds, feedsAs);
-		}
-	},
-	
-	importLevel_old : function (nodes, createIn, nested, links, feeds, feedsAs) {
-		// nodes is a level of the array created by importNode
+		var ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
+		var bmsvc = Components.classes["@mozilla.org/browser/nav-bookmarks-service;1"].getService(Components.interfaces.nsINavBookmarksService);
+		var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
+		var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"].getService(Components.interfaces.nsILivemarkService);
 		
 		if (!feedsAs) feedsAs = 'feeds';
 		
-		if (!createIn){
-			createIn = RDF.GetResource("NC:BookmarksRoot");
-		}
+		var menu = Application.bookmarks.menu;
+		var toolbar = Application.bookmarks.toolbar;
+		var unfiled = Application.bookmarks.unfiled;
 		
-		for (var i = 0; i < nodes.length; i++){
-			if (nodes[i].type == 'folder'){	
-				if (nested) {
-					var newCreateIn = BMSVC.createFolderInContainer(nodes[i].title, createIn, null);
-					this.importLevel_old(nodes[i].children, newCreateIn, true, links, feeds, feedsAs);
+		var count = 0;
+		var total = OPMLSUPPORT.totalToImport;
+		
+		function _importLevel(nodes, createIn) {
+			if (!createIn){
+				createIn = Application.bookmarks.menu;
+			}
+			
+			var len = nodes.length;
+			
+			for (var i = 0; i < len; i++){
+				var node = nodes[i];
+				var nodeTitle = node.title;
+				var nodeType = node.type;
+				var nodeDesc = node.desc;
+				
+				if (nodeType == 'folder'){	
+					var newCreateIn = createIn;
+					
+					if (nested) {
+						switch (nodeTitle) {
+							case "Bookmarks Menu":
+								newCreateIn = menu;
+							break;
+							case "Bookmarks Toolbar":
+								newCreateIn = toolbar;
+							break;
+							case "Unfiled Bookmarks":
+								newCreateIn = unfiled;
+							break;
+							default:
+								newCreateIn = createIn.addFolder(nodeTitle);
+							break;
+						}
+					}
+					
+					_importLevel(node.children, newCreateIn);
 				}
 				else {
-					this.importLevel_old(nodes[i].children, createIn, false, links, feeds, feedsAs);
-				}
-			}
-			else {
-				if ((nodes[i].type == 'feed' || nodes[i].type == 'atom') && feeds){
-					if (feedsAs == 'feeds'){
-						BMSVC.createLivemarkInContainer(nodes[i].title, nodes[i].url, nodes[i].feedURL, nodes[i].desc, createIn, null);
+					var uri = ioService.newURI(node.url, null, null);
+
+					if (feeds && (nodeType == 'feed' || nodeType == 'atom')){
+						if (feedsAs == 'feeds'){
+							var feedUri = ioService.newURI(node.feedURL, null, null);
+							var lm = livemarkService.createLivemarkFolderOnly(createIn.id, nodeTitle, uri, feedUri, -1);
+							annotationService.setItemAnnotation(lm, "bookmarkProperties/description", nodeDesc, 0, Components.interfaces.nsIAnnotationService.EXPIRE_NEVER);
+						}
+						else {
+							var bm = createIn.addBookmark(nodeTitle, uri);
+							bm.description = nodeDesc;
+						}
 					}
-					else {
-						BMSVC.createBookmarkInContainer(nodes[i].title, nodes[i].url,  nodes[i].keyword,  nodes[i].desc, null, null, createIn, null);
+					else if (links && (nodeType == 'link')) {
+						var bm = createIn.addBookmark(nodeTitle, uri);
+						bm.keyword = node.keyword;
+						bm.description = nodeDesc;
 					}
-				}
-				else if ((nodes[i].type == 'link') && links) {
-					BMSVC.createBookmarkInContainer(nodes[i].title, nodes[i].url,  nodes[i].keyword,  nodes[i].desc, null, null, createIn, null);
 				}
 			}
 		}
+		
+		_importLevel(nodes, createIn);
 	},
 	
 	countItems : function (arr, carr) {
@@ -361,11 +203,6 @@ var OPMLSUPPORT = {
 		window.openDialog('chrome://opml-support/content/export-wizard.xul','export','chrome,centerscreen,modal');
 	},
 	
-	exportOPML_places : function () {
-		// Show a dialog, allow the user to pick bookmarks or livemarks or all
-		window.openDialog('chrome://opml-support/content/export-wizard.xul','export','chrome,centerscreen,modal');
-	},
-	
 	doExportOPML : function (feeds, links, nested, feedMode) {
 		var filePrefix = "livemarks";
 		var title = "Livemarks";
@@ -392,37 +229,10 @@ var OPMLSUPPORT = {
 			data += "\t" + '<body>' + "\n";
 			
 			var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"];
-			
-			if (livemarkService) {
-				// FF3+
-				this.doExportOPML_new(file, data, feeds, links, nested, feedMode);
-			}
-			else {
-				this.doExportOPML_old(file, data, feeds, links, nested, feedMode);
-			}
+			this.doExportOPML_new(file, data, feeds, links, nested, feedMode);
 		}
 		
 		//this.reportAllTime();
-	},
-	
-	doExportOPML_old : function (file, data, feeds, links, nested, feedMode) {
-		var root = RDF.GetResource("NC:BookmarksRoot");
-			
-		data = this.addFolderToOPML(data, feeds, links, root, feedMode, 0, true, nested);
-		
-		data += "\t" + '</body>' + "\n";
-		data += '</opml>';
-		
-		//convert to utf-8 from native unicode
-		var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].getService(Components.interfaces.nsIScriptableUnicodeConverter);
-		converter.charset = 'UTF-8';
-		data = converter.ConvertFromUnicode(data);
-		
-		var outputStream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
-
-		outputStream.init(file, 0x04 | 0x08 | 0x20, 420, 0 );
-		outputStream.write(data, data.length);
-		outputStream.close();
 	},
 	
 	doExportOPML_new : function (file, data, feeds, links, nested, feedMode) {
@@ -508,60 +318,6 @@ var OPMLSUPPORT = {
 		outputStream.close();
 	},
 	
-	addFolderToOPML : function (dataString, feeds, links, folder, feedMode, level, isBase, nested) {
-		level++;
-		
-		if (!isBase && nested) {
-			dataString += "\t";
-			
-			for (var i = 1; i < level; i++){
-				dataString += "\t";
-			}
-			
-			dataString += '<outline text="' + this.cleanXMLText(this.getField(folder, "Name")) + '">' + "\n";
-		}
-		
-		RDFC.Init(BMDS, folder);
-
-		var elements = RDFC.GetElements();
-		
-		while(elements.hasMoreElements()) {
-			var element = elements.getNext();
-			element.QueryInterface(Components.interfaces.nsIRDFResource);
-
-			var type = BookmarksUtils.resolveType(element);
-			if ((type == "Folder") || (type == "PersonalToolbarFolder")){
-				dataString = this.addFolderToOPML(dataString, feeds, links, element, feedMode, level, false, nested);
-			}
-			else if ((type == 'Bookmark') || (type == 'Livemark')) {
-				dataString += "\t\t";
-				
-				for (var i = 1; i < level; i++){
-					dataString += "\t";
-				}
-				
-				if ((links && (type == 'Bookmark')) || (feeds && (type == 'Livemark') && (feedMode == 'links'))){
-					dataString += '<outline type="link" text="' + this.cleanXMLText(this.getField(element, "Name")) + '" url="' + this.cleanXMLText(this.getField(element, "URL")) + '" description="' + this.cleanXMLText(this.getField(element, "Description")) + '" keyword="'+this.cleanXMLText(this.getField(element, "ShortcutURL")) + '" />' + "\n";
-				}
-				else if (feeds && (type == 'Livemark')) {
-					dataString += '<outline type="rss" version="RSS" text="' + this.cleanXMLText(this.getField(element, "Name")) + '" htmlUrl="' + this.cleanXMLText(this.getField(element, "URL")) + '" xmlUrl="' + this.cleanXMLText(this.getField(element, "FeedURL")) + '" description="' + this.cleanXMLText(this.getField(element, "Description")) + '"/>' + "\n";
-				}
-			}
-		}
-		
-		if (!isBase && nested) {
-			dataString += "\t";
-			
-			for (var i = 1; i < level; i++){
-				dataString += "\t";
-			}
-			
-			dataString += '</outline>' + "\n";
-		}
-		
-		return dataString;
-	},
-		
 	promptForFile : function (filePrefix) {
 		var nsIFilePicker = Components.interfaces.nsIFilePicker;
 		var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
@@ -599,20 +355,48 @@ var OPMLSUPPORT = {
 			
 				str = str.replace(re, res[i].replace);
 			}
-		} catch (e) { alert(str + " " + e); }
+		} catch (e) { OPMLSUPPORT.log(str + " " + e); }
 		return str;
 	},
 	
-	getField : function (e, field) {
-		try {
-			return BMDS.GetTarget(RDF.GetResource(e.Value), RDF.GetResource("http://home.netscape.com/NC-rdf#"+field), true).QueryInterface(kRDFLITIID).Value;
-		} catch (e) {
-			return '';
+	/* DEBUG FUNCTIONS */
+
+	lastTime : null,
+	firstTime : null,
+	totalToImport : 0,
+	
+	agg : {},
+	
+	reportTime : function (label) {
+		var date = new Date();
+		
+		if (this.lastTime) timeSince = date.getTime() - this.lastTime.getTime();
+		else timeSince = 0;
+		
+		if (!this.firstTime) {
+			this.firstTime = date;
+			timeSinceFirst = 0;
 		}
+		else {
+			timeSinceFirst = date.getTime() - this.firstTime.getTime();
+		}
+		
+		this.lastTime = date;
+		
+		var consoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+		if (!this.agg[label]) this.agg[label] = timeSince;
+		else this.agg[label] += timeSince;
+		consoleService.logStringMessage("OPML: " + label + " " + (date.getTime()) + " (" + timeSince + ") (" + timeSinceFirst+ ")");
+	},
+	
+	reportAllTime : function () {
+	    for (var i in this.agg) {
+	        OPMLSUPPORT.log(i + ": " + this.agg[i]);
+        }
+    },
+
+	log : function (message) {
+		var consoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+		consoleService.logStringMessage("OPML: " + message);
 	}
 };
-
-function opmllog(message){
-	var consoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
-	consoleService.logStringMessage("OPML: " + message);
-}

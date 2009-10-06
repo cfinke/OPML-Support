@@ -8,11 +8,15 @@
 		</stringbundleset>
 		<commandset id="mainCommandSet">
 			<command id="opml-support-import" oncommand="OPMLSUPPORT.importOPML();" />
-			<command id="opml-support-export" oncommand="OPMLSUPPORT.exportOPML_places();" />
+			<command id="opml-support-export" oncommand="OPMLSUPPORT.exportOPML();" />
 		</commandset>
 	</window>
-	<menupopup id="maintenanceButtonPopup">
-		<menuitem id="opmlImport" label="&opmlImport;" insertafter="fileImport" command="opml-support-import" />
-		<menuitem id="opmlExport" label="&opmlExport;" insertafter="fileExport" command="opml-support-export" />
-	</menupopup>
+	<toolbar id="placesToolbar">
+		<toolbarbutton id="opmlButton" class="tabbable" label="OPML" type="menu" insertafter="maintenanceButton" style="list-style-image: url(chrome://opml-support/skin/opml-16.gif);">
+			<menupopup id="opmlButtonPopup">
+				<menuitem id="opmlImport" label="&opmlImport;" command="opml-support-import" />
+				<menuitem id="opmlExport" label="&opmlExport;" command="opml-support-export" />
+			</menupopup>
+		</toolbarbutton>
+	</toolbar>
 </overlay>

@@ -17,6 +17,4 @@ locale      opml-support     tr-TR               jar:chrome/opmlsupport.jar!/loc
 locale      opml-support     uk-UA               jar:chrome/opmlsupport.jar!/locale/uk-UA/
 locale      opml-support     zh-TW               jar:chrome/opmlsupport.jar!/locale/zh-TW/
 
-overlay     chrome://browser/content/bookmarks/bookmarksManager.xul chrome://opml-support/content/overlay.xul
-
 overlay     chrome://browser/content/places/places.xul   chrome://opml-support/content/overlay-places.xul
