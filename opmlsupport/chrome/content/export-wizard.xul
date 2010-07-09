@@ -5,17 +5,17 @@
 	title="&opmlExport;"
 	buttons="accept,cancel"
 	orient="vertical"
-	style="max-width: 30em;"
+	style="max-width: 35em;"
 	onload="window.sizeToContent();"
 	ondialogaccept="return acceptDialog();"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	<hbox>
+	<hbox align="center">
 		<label value="&exportQuestion;" for="type"/>
 		<menulist id="type">
 			<menupopup>
-				<menuitem label="&livemarks;" value="livemarks" />
-				<menuitem label="&bookmarks;" value="bookmarks" />
-				<menuitem label="&all;" value="all" selected="true" />
+				<menuitem label="&opml.selectAll;" value="all" selected="true" />
+				<menuitem label="&opml.onlyLivemarks;" value="livemarks" />
+				<menuitem label="&opml.onlyBookmarks;" value="bookmarks" />
 			</menupopup>
 		</menulist>
 	</hbox>
@@ -29,7 +29,7 @@
 			<radio id="export-flat" label="&exportFlat;" />
 		</radiogroup>
 	</groupbox>
-	<hbox pack="center" hidden="true" id="loading-notice">
+	<hbox pack="center" style="visibility: hidden;" id="loading-notice">
 		<label value="&opml.loading;" />
 	</hbox>
 	<script type="application/x-javascript">
@@ -53,7 +53,7 @@
 		typeChange();
 		
 		function acceptDialog() {
-			document.getElementById("loading-notice").hidden = false;
+			document.getElementById("loading-notice").style.visibility = "visible";
 			setTimeout('continueExport();', 1000);
 			return false;
 		}

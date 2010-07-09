@@ -1,19 +1,23 @@
 <?xml version="1.0"?>
-<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
-         xmlns:NC="http://home.netscape.com/NC-rdf#"
-         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="urn:mozilla:install-manifest"
-                   em:id="{9458ca25-39fd-4ba8-9520-acc5c0d877b6}"
-                   em:name="OPML Support"
-                   em:version="1.6"
-                   em:description="Adds OPML import/export functionality to the Firefox Bookmarks Manager."
-                   em:creator="Christopher Finke"
-                   em:homepageURL="http://www.chrisfinke.com/addons/opml-support/"
-                   em:iconURL="chrome://opml-support/skin/icon.gif">
-    <em:targetApplication RDF:resource="rdf:#$ZaYzA"/>
-  </RDF:Description>
-  <RDF:Description RDF:about="rdf:#$ZaYzA"
-                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-                   em:minVersion="3.5"
-                   em:maxVersion="3.5.*" />
-</RDF:RDF>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+	<Description about="urn:mozilla:install-manifest">
+		<em:id>{9458ca25-39fd-4ba8-9520-acc5c0d877b6}</em:id>
+		<em:name>OPML Support</em:name>
+		<em:version>1.7</em:version>
+		<em:description>Adds OPML import/export functionality to the Firefox Bookmarks Manager.</em:description>
+		<em:creator>Christopher Finke</em:creator>
+		<em:iconURL>chrome://opml-support/content/skin-common/opml-icon-32x32.png</em:iconURL>
+		<em:homepageURL>http://www.chrisfinke.com/addons/opml-support/</em:homepageURL>
+		
+		<!-- Firefox -->
+		
+		<em:targetApplication>
+			<Description>
+				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+				<em:minVersion>3.5</em:minVersion>
+				<em:maxVersion>4.0b2pre</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		
+	</Description>
+</RDF>

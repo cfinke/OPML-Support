@@ -1,5 +1,7 @@
 content     opml-support     jar:chrome/opmlsupport.jar!/content/
-skin        opml-support     classic             jar:chrome/opmlsupport.jar!/skin/
+
+skin        opml-support     classic             jar:chrome/opmlsupport.jar!/skin/winlin/
+skin        opml-support     classic             jar:chrome/opmlsupport.jar!/skin/mac/ os=Darwin
 
 locale      opml-support     bg-BG               jar:chrome/opmlsupport.jar!/locale/bg-BG/
 locale      opml-support     cs-CZ               jar:chrome/opmlsupport.jar!/locale/cs-CZ/
@@ -17,4 +19,5 @@ locale      opml-support     tr-TR               jar:chrome/opmlsupport.jar!/loc
 locale      opml-support     uk-UA               jar:chrome/opmlsupport.jar!/locale/uk-UA/
 locale      opml-support     zh-TW               jar:chrome/opmlsupport.jar!/locale/zh-TW/
 
+overlay     chrome://browser/content/browser.xul         chrome://opml-support/content/overlay-browser.xul
 overlay     chrome://browser/content/places/places.xul   chrome://opml-support/content/overlay-places.xul

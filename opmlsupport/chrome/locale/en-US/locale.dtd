@@ -1,17 +1,20 @@
+<!ENTITY opml.opmlSupport "OPML Support">
 <!ENTITY opmlExport "Export OPML...">
 <!ENTITY opmlImport "Import OPML...">
 <!ENTITY exportQuestion "What do you want to export?">
-<!ENTITY livemarks "Livemarks (Feeds)">
-<!ENTITY bookmarks "Bookmarks">
-<!ENTITY all "All">
-<!ENTITY feedsAsLinksLabel "Export livemarks as bookmarks">
-<!ENTITY feedsAsLinksDesc "Livemarks can be exported as normal bookmarks that link to the site that provides the feed.">
+<!ENTITY opml.selectAll "Everything">
+<!ENTITY opml.onlyLivemarks "Only Live Bookmarks (Feeds)">
+<!ENTITY opml.onlyBookmarks "Only Bookmarks">
+<!ENTITY opml.livemarks "Live Bookmarks (Feeds)">
+<!ENTITY opml.bookmarks "Bookmarks">
+<!ENTITY feedsAsLinksLabel "Export Live Bookmarks as bookmarks">
+<!ENTITY feedsAsLinksDesc "Live Bookmarks can be exported as normal bookmarks that link to the site that provides the feed.">
 <!ENTITY exportNested "Maintain folder structure when exporting.">
 <!ENTITY exportFlat "Export links without folder data.">
 <!ENTITY importNestedDesc "The OPML file contains links organized into folders.">
 <!ENTITY importNestedLabel "Create folders as indicated by OPML file.">
 <!ENTITY importFlatLabel "Import links without creating folders.">
 <!ENTITY importTypeDesc "The OPML file contains multiple types of links. Which types should be imported?">
-<!ENTITY importLivemarksAsLinksDesc "Livemarks can be imported as normal bookmarks that link to the site that provides the feed.">
-<!ENTITY importLivemarksAsLinksLabel "Import livemarks as bookmarks">
+<!ENTITY importLivemarksAsLinksDesc "Live Bookmarks can be imported as normal bookmarks that link to the site that provides the feed.">
+<!ENTITY importLivemarksAsLinksLabel "Import Live Bookmarks as bookmarks">
 <!ENTITY opml.loading "Processing bookmarks...">

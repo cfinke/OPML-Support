@@ -11,12 +11,31 @@
 			<command id="opml-support-export" oncommand="OPMLSUPPORT.exportOPML();" />
 		</commandset>
 	</window>
+	<menubar id="placesMenu">
+		<menu id="opmlMenu" class="menu-iconic" label="&opml.opmlSupport;" accesskey="S" style="list-style-image: url(chrome://opml-support/skin/opml-icon-16x16.png);">
+			<menupopup>
+				<menuitem label="&opmlImport;" command="opml-support-import" />
+				<menuitem label="&opmlExport;" command="opml-support-export" />
+			</menupopup>
+		</menu>
+	</menubar>
 	<toolbar id="placesToolbar">
-		<toolbarbutton id="opmlButton" class="tabbable" label="OPML" type="menu" insertafter="maintenanceButton" style="list-style-image: url(chrome://opml-support/skin/opml-16.gif);">
-			<menupopup id="opmlButtonPopup">
-				<menuitem id="opmlImport" label="&opmlImport;" command="opml-support-import" />
-				<menuitem id="opmlExport" label="&opmlExport;" command="opml-support-export" />
+		<toolbarbutton id="opmlButton" class="tabbable" label="&opml.opmlSupport;" type="menu" insertafter="maintenanceButton" style="list-style-image: url(chrome://opml-support/skin/opml-icon-16x16.png);">
+			<menupopup>
+				<menuitem label="&opmlImport;" command="opml-support-import" />
+				<menuitem label="&opmlExport;" command="opml-support-export" />
 			</menupopup>
 		</toolbarbutton>
 	</toolbar>
+	<script type="application/x-javascript">
+		<![CDATA[
+		
+		addEventListener("load", function () {
+				if (document.getElementById("placesMenu")) {
+					document.getElementById("opmlButton").parentNode.removeChild(document.getElementById("opmlButton"));
+				}
+			}, false);
+		
+		]]>
+	</script>
 </overlay>

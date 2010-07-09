@@ -5,7 +5,7 @@
 	title="&opmlImport;"
 	buttons="accept,cancel"
 	orient="vertical"
-	style="max-width: 30em;"
+	style="max-width: 35em;"
 	ondialogaccept="return acceptDialog();"
 	ondialogcancel="cancelDialog();"
 	onload="window.sizeToContent();"
@@ -19,14 +19,14 @@
 	</groupbox>
 	<groupbox id="link-types" style="display: none;">
 		<description>&importTypeDesc;</description>
-		<checkbox id="import-links" label="&bookmarks;" checked="true" />
-		<checkbox id="import-feeds" label="&livemarks;" checked="true" />
+		<checkbox id="import-links" label="&opml.bookmarks;" checked="true" />
+		<checkbox id="import-feeds" label="&opml.livemarks;" checked="true" />
 	</groupbox>
 	<groupbox id="feeds-as-links-section" style="display: none;">
 		<description>&importLivemarksAsLinksDesc;</description>
 		<checkbox id="import-feeds-as-links" label="&importLivemarksAsLinksLabel;" checked="false" />
 	</groupbox>
-	<hbox pack="center" hidden="true" id="loading-notice">
+	<hbox pack="center" style="visibility: hidden;" id="loading-notice">
 		<label value="&opml.loading;" />
 	</hbox>
 	<script type="application/x-javascript">
@@ -62,7 +62,7 @@
 		document.getElementById("import-feeds").onchange();
 		
 		function acceptDialog(){
-			document.getElementById("loading-notice").hidden = false;
+			document.getElementById("loading-notice").style.visibility = 'visible';
 			setTimeout('continueImport();', 1000);
 			return false;
 		}

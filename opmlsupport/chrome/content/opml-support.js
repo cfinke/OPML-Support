@@ -1,6 +1,6 @@
 var OPMLSUPPORT = {
 	get strings() { return document.getElementById("opml-support-bundle"); },
-
+	
 	importOPML : function () {
 		var nsIFilePicker = Components.interfaces.nsIFilePicker;
 		var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
@@ -27,7 +27,15 @@ var OPMLSUPPORT = {
 			var results = [];
 			
 			// At this point, we have an XML doc in opmldoc
-			var nodes = opmldoc.getElementsByTagName("body")[0].childNodes;
+			
+			var bodyTags = opmldoc.getElementsByTagName("body");
+			
+			if (bodyTags.length == 0) {
+				OPMLSUPPORT.alert(OPMLSUPPORT.strings.getString("opml.malformedDocument"));
+				return;
+			}
+			
+			var nodes = bodyTags[0].childNodes;
 		
 			for (var i = 0; i < nodes.length; i++){
 				if (nodes[i].nodeName == 'outline'){
@@ -58,6 +66,12 @@ var OPMLSUPPORT = {
 		}
 		
 		OPMLSUPPORT.reportAllTime();
+	},
+	
+	alert : function (msg) {
+		var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]  
+			.getService(Components.interfaces.nsIPromptService);  
+		prompts.alert(null, OPMLSUPPORT.strings.getString("opml.opmlSupport"), msg);
 	},
 	
 	importLevel : function(nodes, createIn, nested, links, feeds, feedsAs){
@@ -204,16 +218,16 @@ var OPMLSUPPORT = {
 	},
 	
 	doExportOPML : function (feeds, links, nested, feedMode) {
-		var filePrefix = "livemarks";
-		var title = "Livemarks";
+		var filePrefix = OPMLSUPPORT.strings.getString("opml.exportLiveBookmarksFilename");
+		var title = OPMLSUPPORT.strings.getString("opml.exportLiveBookmarksTitle");
 		
 		if (feeds && links) {
-			filePrefix = "livemarks-and-bookmarks";
-			title = "Livemarks and Bookmarks";
+			filePrefix = OPMLSUPPORT.strings.getString("opml.exportAllFilename");
+			title = OPMLSUPPORT.strings.getString("opml.exportAllTitle");
 		}
 		else if (links) {
-			filePrefix = "bookmarks";
-			title = "Bookmarks";
+			filePrefix = OPMLSUPPORT.strings.getString("opml.exportBookmarksFilename");
+			title = OPMLSUPPORT.strings.getString("opml.exportBookmarksTitle");
 		}
 		
 		var file = this.promptForFile(filePrefix);
@@ -223,7 +237,7 @@ var OPMLSUPPORT = {
 			data += '<?xml version="1.0" encoding="UTF-8"?>' + "\n";
 			data += '<opml version="1.0">' + "\n";
 			data += "\t" + '<head>' + "\n";
-			data += "\t\t" + '<title>' + title + ' OPML Export</title>' + "\n";
+			data += "\t\t" + '<title><![CDATA[' + title + ']]></title>' + "\n";
 			data += "\t\t" + '<dateCreated>' + new Date().toString() + '</dateCreated>' + "\n";
 			data += "\t" + '</head>' + "\n";
 			data += "\t" + '<body>' + "\n";
