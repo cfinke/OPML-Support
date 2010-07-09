@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "匯出 OPML...">
 <!ENTITY opmlImport "匯入 OPML...">
 <!ENTITY exportQuestion "您想要匯出什麼？">
-<!ENTITY livemarks "即時書籤(Feeds)">
-<!ENTITY bookmarks "書籤">
-<!ENTITY all "全部">
 <!ENTITY feedsAsLinksLabel "匯出即時書籤為一般書籤">
 <!ENTITY feedsAsLinksDesc "即時書籤可以匯出成可連結到該訊息的一般書籤">
 <!ENTITY exportNested "匯出時保留書籤架構">

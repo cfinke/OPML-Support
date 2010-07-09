@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "Eksportuj OPML...">
 <!ENTITY opmlImport "Importuj OPML...">
 <!ENTITY exportQuestion "Co chcesz wyeksportować?">
-<!ENTITY livemarks "Kanały">
-<!ENTITY bookmarks "Zakładki">
-<!ENTITY all "Wszystko">
 <!ENTITY feedsAsLinksLabel "Wyeksportuj kanały jako zakładki">
 <!ENTITY feedsAsLinksDesc "Kanały mogą zostać wyeksportowane jako normalne zakładki, które odnoszą się do strony dostarczającej aktualizacji.">
 <!ENTITY exportNested "Zachowaj strukturę folderów podczas eksportu.">

@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "OPML エクスポート">
 <!ENTITY opmlImport "OPML インポート">
 <!ENTITY exportQuestion "何をエクスポートしますか?">
-<!ENTITY livemarks "ライブブックマーク">
-<!ENTITY bookmarks "ブックマーク">
-<!ENTITY all "すべて">
 <!ENTITY feedsAsLinksLabel "ライブブックマークをブックマークとしてエクスポート">
 <!ENTITY feedsAsLinksDesc "ライブブックマークは、そのライブブックマークを提供するサイトにリンクする、通常のブックマークとしてエクスポートされます。">
 <!ENTITY exportNested "エクスポート時にフォルダ構造を維持">

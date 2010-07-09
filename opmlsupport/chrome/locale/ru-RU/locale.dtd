@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "Экспортировать OPML…">
 <!ENTITY opmlImport "Импортировать OPML…">
 <!ENTITY exportQuestion "Что нужно экспортировать?">
-<!ENTITY livemarks "Livemarks (Ленты новостей)">
-<!ENTITY bookmarks "Закладки">
-<!ENTITY all "Все">
 <!ENTITY feedsAsLinksLabel "Экспортировать ленты новостей как закладки">
 <!ENTITY feedsAsLinksDesc "Ленты новостей могут быть экспортированы как обыкновенные закладки указывающие на сайт который предоставляет ленту.">
 <!ENTITY exportNested "Упорядочить структуру папок во время экспорта.">

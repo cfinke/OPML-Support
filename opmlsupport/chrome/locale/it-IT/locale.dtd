@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "Esporta OPML…">
 <!ENTITY opmlImport "Importa OPML…">
 <!ENTITY exportQuestion "Elementi da esportare:">
-<!ENTITY livemarks "segnalibri Live">
-<!ENTITY bookmarks "segnalibri">
-<!ENTITY all "tutti">
 <!ENTITY feedsAsLinksLabel "Esporta i segnalibri Live come segnalibri">
 <!ENTITY feedsAsLinksDesc "I segnalibri Live possono essere esportati come normali segnalibri che collegano al sito che li fornisce">
 <!ENTITY exportNested "Nell&apos;esportazione conserva la struttura delle cartelle">

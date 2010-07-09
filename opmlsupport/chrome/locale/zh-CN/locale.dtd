@@ -1,7 +1,4 @@
 <!ENTITY opmlExport "导出OPML...">
 <!ENTITY opmlImport "导入OPML...">
 <!ENTITY exportQuestion "你想要导出什么?">
-<!ENTITY livemarks "激动标记(feeds)">
-<!ENTITY bookmarks "书签">
-<!ENTITY all "全部">
 <!ENTITY feedsAsLinksLabel "导出活动">

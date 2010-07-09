@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "OPML exportieren">
 <!ENTITY opmlImport "OPML importieren">
 <!ENTITY exportQuestion "Was möchten Sie exportieren?">
-<!ENTITY livemarks "Dynamische Lesezeichen">
-<!ENTITY bookmarks "Normale Lesezeichen (statisch)">
-<!ENTITY all "Alle Lesezeichen">
 <!ENTITY feedsAsLinksLabel "Dynamische Lesezeichen als normale Lesezeichen exportieren">
 <!ENTITY feedsAsLinksDesc "Dynamische Lesezeichen können als normale (statische) Lesezeichen exportiert werden, es wird dann auf die das dynamische Lesezeichen bereitstellende Seite verlinkt.">
 <!ENTITY exportNested "Ordnerstruktur beim Export beibehalten">

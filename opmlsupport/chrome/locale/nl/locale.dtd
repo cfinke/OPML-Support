@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "OPML Uitvoer">
 <!ENTITY opmlImport "OPML Invoer">
 <!ENTITY exportQuestion "Wat wilt u exporteren?">
-<!ENTITY livemarks "Livemarks">
-<!ENTITY bookmarks "Bladwijzers">
-<!ENTITY all "Alles">
 <!ENTITY feedsAsLinksLabel "Exporteer livemarks als bladwijzers">
 <!ENTITY feedsAsLinksDesc "Livemarks kunnen geëxporteerd worden als normale bladwijzers die verwijzen naar de site met de livemark.">
 <!ENTITY exportNested "Behoud mappenstructuur bij exporteren.">

@@ -1,9 +1,6 @@
 <!ENTITY opmlExport "Exportation OPML…">
 <!ENTITY opmlImport "Importation OPML…">
 <!ENTITY exportQuestion "Que voulez-vous exporter ?">
-<!ENTITY livemarks "Marque-pages dynamiques">
-<!ENTITY bookmarks "Marque-pages">
-<!ENTITY all "Tout">
 <!ENTITY feedsAsLinksLabel "Exporter marque-pages dynamiques comme des marque-pages.">
 <!ENTITY feedsAsLinksDesc "Les marque-pages dynamiques peuvent être exportés en tant que marque-pages normaux et utilisés comme lien vers le site qui fournit le flux.">
 <!ENTITY exportNested "Conserver la structure du dossier en exportant.">
