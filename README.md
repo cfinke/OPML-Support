@@ -1,0 +1,1 @@
+OPML Support is a Firefox extension that adds support for importing and exporting bookmarks in OPML format.
