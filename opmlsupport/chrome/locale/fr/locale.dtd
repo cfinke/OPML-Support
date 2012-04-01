@@ -1,14 +1,20 @@
+<!ENTITY opml.opmlSupport "Prise en charge OPML">
 <!ENTITY opmlExport "Exportation OPML…">
 <!ENTITY opmlImport "Importation OPML…">
 <!ENTITY exportQuestion "Que voulez-vous exporter ?">
+<!ENTITY opml.selectAll "Tout">
+<!ENTITY opml.onlyLivemarks "Uniquement les marque-pages dynamiques (flux)">
+<!ENTITY opml.onlyBookmarks "Uniquement les marque-pages">
+<!ENTITY opml.livemarks "Marque-pages dynamiques (flux)">
+<!ENTITY opml.bookmarks "Marque-pages">
 <!ENTITY feedsAsLinksLabel "Exporter marque-pages dynamiques comme des marque-pages.">
-<!ENTITY feedsAsLinksDesc "Les marque-pages dynamiques peuvent être exportés en tant que marque-pages normaux et utilisés comme lien vers le site qui fournit le flux.">
+<!ENTITY feedsAsLinksDesc "Les marque-pages dynamiques peuvent être exportés en tant que marque-pages normaux et utilisés comme lien vers le site fournissant le flux.">
 <!ENTITY exportNested "Conserver la structure du dossier en exportant.">
 <!ENTITY exportFlat "Exporter les liens sans dossier.">
 <!ENTITY importNestedDesc "Le fichier OPML contient des liens triés dans des dossiers.">
 <!ENTITY importNestedLabel "Créer les dossiers comme indiqué par le fichier OPML.">
 <!ENTITY importFlatLabel "Importer les liens sans créer de dossier.">
 <!ENTITY importTypeDesc "le dossier OPML contient plusieurs types de liens. Quels sont les types qui devraient être importés ?">
-<!ENTITY importLivemarksAsLinksDesc "Les marque-pages dynamiques peuvent être importés en tant que marque-pages normaux et utilisés comme lien vers le site qui fournit le marque-page dynamique.">
+<!ENTITY importLivemarksAsLinksDesc "Les marque-pages dynamiques peuvent être importés en tant que marque-pages normaux et utilisés comme lien vers le site fournissant le flux.">
 <!ENTITY importLivemarksAsLinksLabel "Importer les marque-pages dynamiques comme marque-pages">
 <!ENTITY opml.loading "Importation des marque-pages en cours…">
