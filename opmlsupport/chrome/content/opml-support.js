@@ -289,7 +289,7 @@ var OPMLSUPPORT = {
 						
 							if ((links && (type == 'bookmark')) || (feeds && (type == 'folder') && (feedMode == 'links'))) {
 								// Bookmark or Livemark as a bookmark
-								data += '<outline type="link" text="' + OPMLSUPPORT.cleanXMLText(title) + '" url ="' + OPMLSUPPORT.cleanXMLText(url) + '" description="'+OPMLSUPPORT.cleanXMLText(description)+'" keyword="'+OPMLSUPPORT.cleanXMLText(keyword)+'" />';
+								data += '<outline type="link" text="' + OPMLSUPPORT.cleanXMLText(title) + '" url="' + OPMLSUPPORT.cleanXMLText(url) + '" description="'+OPMLSUPPORT.cleanXMLText(description)+'" keyword="'+OPMLSUPPORT.cleanXMLText(keyword)+'" />';
 							}
 							else {
 								if (feeds && (type == 'folder') && (feedMode != 'links')) {
