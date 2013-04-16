@@ -3,10 +3,10 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{9458ca25-39fd-4ba8-9520-acc5c0d877b6}</em:id>
 		<em:name>OPML Support</em:name>
-		<em:version>1.6</em:version>
+		<em:version>2</em:version>
 		<em:description>Adds OPML import/export functionality to the Firefox Bookmarks Manager.</em:description>
 		<em:creator>Christopher Finke</em:creator>
-		<em:iconURL>chrome://opml-support/content/skin-common/opml-icon-32x32.png</em:iconURL>
+		<em:iconURL>chrome://opml-support/content/skin-common/opml-icon-64x64.png</em:iconURL>
 		<em:homepageURL>http://www.chrisfinke.com/addons/opml-support/</em:homepageURL>
 		
 		<!-- Firefox -->
@@ -14,8 +14,8 @@
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:minVersion>3.5</em:minVersion>
-				<em:maxVersion>4.0b2pre</em:maxVersion>
+				<em:minVersion>19</em:minVersion>
+				<em:maxVersion>20.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		
