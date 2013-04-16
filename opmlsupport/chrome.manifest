@@ -1,25 +1,25 @@
-content     opml-support                     content/
+content     opml-support                         chrome/content/
 
-skin        opml-support     classic             skin/winlin/
-skin        opml-support     classic             skin/mac/ os=Darwin
+skin        opml-support     classic             chrome/skin/winlin/
+skin        opml-support     classic             chrome/skin/mac/ os=Darwin
 
-locale      opml-support     bg-BG               locale/bg-BG/
-locale      opml-support     cs-CZ               locale/cs-CZ/
-locale      opml-support     de                  locale/de/
-locale      opml-support     en-US               locale/en-US/
-locale      opml-support     fr                  locale/fr/
-locale      opml-support     it-IT               locale/it-IT/
-locale      opml-support     ja-JP               locale/ja-JP/
-locale      opml-support     ko-KR               locale/ko-KR/
-locale      opml-support     mk-MK               locale/mk-MK/
-locale      opml-support     nl                  locale/nl/
-locale      opml-support     pl-PL               locale/pl-PL/
-locale      opml-support     pt-BR               locale/pt-BR/
-locale      opml-support     ru-RU               locale/ru-RU/
-locale      opml-support     tr-TR               locale/tr-TR/
-locale      opml-support     uk-UA               locale/uk-UA/
-locale      opml-support     zh-CN               locale/zh-CN/
-locale      opml-support     zh-TW               locale/zh-TW/
+locale      opml-support     bg-BG               chrome/locale/bg-BG/
+locale      opml-support     cs-CZ               chrome/locale/cs-CZ/
+locale      opml-support     de                  chrome/locale/de/
+locale      opml-support     en-US               chrome/locale/en-US/
+locale      opml-support     fr                  chrome/locale/fr/
+locale      opml-support     it-IT               chrome/locale/it-IT/
+locale      opml-support     ja-JP               chrome/locale/ja-JP/
+locale      opml-support     ko-KR               chrome/locale/ko-KR/
+locale      opml-support     mk-MK               chrome/locale/mk-MK/
+locale      opml-support     nl                  chrome/locale/nl/
+locale      opml-support     pl-PL               chrome/locale/pl-PL/
+locale      opml-support     pt-BR               chrome/locale/pt-BR/
+locale      opml-support     ru-RU               chrome/locale/ru-RU/
+locale      opml-support     tr-TR               chrome/locale/tr-TR/
+locale      opml-support     uk-UA               chrome/locale/uk-UA/
+locale      opml-support     zh-CN               chrome/locale/zh-CN/
+locale      opml-support     zh-TW               chrome/locale/zh-TW/
 
 overlay     chrome://browser/content/browser.xul         chrome://opml-support/content/overlay-browser.xul
 overlay     chrome://browser/content/places/places.xul   chrome://opml-support/content/overlay-places.xul
