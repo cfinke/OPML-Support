@@ -226,97 +226,108 @@ var OPMLSUPPORT = {
 			title = OPMLSUPPORT.strings.getString("opml.exportBookmarksTitle");
 		}
 		
-		var file = this.promptForFile(filePrefix);
-        
-		if (file){
-			var data = '';
-			data += '<?xml version="1.0" encoding="UTF-8"?>' + "\n";
-			data += '<opml version="1.0">' + "\n";
-			data += "\t" + '<head>' + "\n";
-			data += "\t\t" + '<title><![CDATA[' + title + ']]></title>' + "\n";
-			data += "\t\t" + '<dateCreated>' + new Date().toString() + '</dateCreated>' + "\n";
-			data += "\t" + '</head>' + "\n";
-			data += "\t" + '<body>' + "\n";
-			
-			this.doExportOPML_new(file, data, feeds, links, nested, feedMode);
-		}
+		var file = this.promptForFile( filePrefix );
 		
-		//this.reportAllTime();
-	},
-	
-	doExportOPML_new : function (file, data, feeds, links, nested, feedMode) {
-		var level = 0;
-		var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
+		if ( ! file )
+			return;
+
+		var opmlDocument = document.implementation.createDocument( null, 'opml', null );
+		opmlDocument.documentElement.setAttribute( 'version', '1.0' );
+		
+		var opmlHead = opmlDocument.createElement( 'head' );
+		var opmlTitle = opmlDocument.createElement( 'title' );
+		opmlTitle.appendChild( opmlDocument.createTextNode( title ) );
+		opmlHead.appendChild( opmlTitle );
+		var opmlDateCreated = opmlDocument.createElement( 'dateCreated' );
+		opmlDateCreated.appendChild( opmlDocument.createTextNode( ( new Date() ).toString() ) );
+		opmlHead.appendChild( opmlDateCreated );
+		opmlDocument.documentElement.appendChild( opmlHead );
+		
+		var opmlBody = opmlDocument.createElement( 'body' );
+		
 		var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"].getService(Components.interfaces.nsILivemarkService);
 
-		function iterate(root, isBase) {
-			if (!isBase && nested) {
-				data += '<outline text="' + OPMLSUPPORT.cleanXMLText(root.title) + '">' + "\n";
+		function iterate( root, docNode, isBase) {
+			if ( ! root.children )
+				return;
+
+			if ( ! isBase && nested ) {
+				var containerNode = docNode.ownerDocument.createElement( 'outline' );
+				containerNode.setAttribute( 'text', root.title );
 			}
-	
-			if (root.children) {
-			    var len = root.children.length;
-			    var rc = root.children;
-			    
-				for (var i = 0; i < len; i++) {
-					var node = rc[i];
-					var type = node.type;
-					var id = node.id;
-					
-					if ((type == "bookmark") || (type == "folder")){
-						// No separators for us.
-						if ((type == "folder") && (!livemarkService.isLivemark(node.id))) {
-							iterate(node);
-						}
-						else {
-							var title = node.title || '';
-							var description = node.description || '';
-						
-							if (type == 'bookmark') {
-								var url = node.uri.spec || '';
-								var keyword = node.keyword || '';
-							}
-							else {
-								var xmlUrl = livemarkService.getFeedURI(id).spec;
-								try { var url = livemarkService.getSiteURI(id).spec; } catch (e) { var url = xmlUrl; }
-								var keyword = "";
-							}
-						
-							if ((links && (type == 'bookmark')) || (feeds && (type == 'folder') && (feedMode == 'links'))) {
-								// Bookmark or Livemark as a bookmark
-								data += '<outline type="link" text="' + OPMLSUPPORT.cleanXMLText(title) + '" url="' + OPMLSUPPORT.cleanXMLText(url) + '" description="'+OPMLSUPPORT.cleanXMLText(description)+'" keyword="'+OPMLSUPPORT.cleanXMLText(keyword)+'" />';
-							}
-							else {
-								if (feeds && (type == 'folder') && (feedMode != 'links')) {
-									// Livemark
-									data += '<outline type="rss" version="RSS" text="' + OPMLSUPPORT.cleanXMLText(title) + '" htmlUrl="' + OPMLSUPPORT.cleanXMLText(url) + '" xmlUrl="' + OPMLSUPPORT.cleanXMLText(xmlUrl) + '" description="' + OPMLSUPPORT.cleanXMLText(description) + '"/>' + "\n";
-								}
-							}
-						}
-					}
+			else {
+				var containerNode = docNode;
+			}
+
+			var rc = root.children;
+
+			for ( var i = 0, _len = rc.length; i < _len; i++ ) {
+				var node = rc[i];
+				var type = node.type;
+				var id = node.id;
+
+				// No separators for us.
+				if ( type != 'bookmark' && type != 'folder' )
+					continue;
+
+				if ( ( type == "folder" ) && ( ! livemarkService.isLivemark( node.id ) ) ) {
+					iterate( node, containerNode );
+					continue;
+				}
+
+				var title = node.title || '';
+				var description = node.description || '';
+
+				if ( type == 'bookmark' ) {
+					var url = node.uri.spec || '';
+					var keyword = node.keyword || '';
+				}
+				else {
+					var xmlUrl = livemarkService.getFeedURI( id ).spec;
+					try { var url = livemarkService.getSiteURI( id ).spec; } catch ( e ) { var url = xmlUrl; }
+					var keyword = "";
+				}
+
+				if ( ( links && ( type == 'bookmark' ) ) || ( feeds && ( type == 'folder' ) && ( feedMode == 'links' ) ) ) {
+					// Bookmark or Livemark as a bookmark
+					var node = containerNode.ownerDocument.createElement( 'outline' );
+					node.setAttribute( 'type', 'link' );
+					node.setAttribute( 'text', title );
+					node.setAttribute( 'url', url );
+					node.setAttribute( 'description', description );
+					node.setAttribute( 'keyword', keyword );
+					containerNode.appendChild( node );
+				}
+				else if ( feeds && ( type == 'folder' ) && ( feedMode != 'links' ) ) {
+					// Livemark
+					var node = containerNode.ownerDocument.createElement( 'outline' );
+					node.setAttribute( 'type', 'rss' );
+					node.setAttribute( 'version', 'RSS' );
+					node.setAttribute( 'text', title );
+					node.setAttribute( 'htmlUrl', url );
+					node.setAttribute( 'xmlUrl', xmlUrl );
+					node.setAttribute( 'description', description );
+					containerNode.appendChild( node );
 				}
 			}
-
-			if (!isBase && nested) {
-				data += '</outline>' + "\n";
-			}
+			
+			if ( containerNode != docNode && containerNode.childNodes.length > 0 )
+				docNode.appendChild( containerNode );
 		}
 
-        var abm = Application.bookmarks;
-
-		data += '<outline text="Bookmarks Menu">' + "\n";
-		iterate(abm.menu, true);
-		data += '</outline>' + "\n";
-		data += '<outline text="Bookmarks Toolbar">' + "\n";
-		iterate(abm.toolbar, true);
-		data += '</outline>';
-		data += '<outline text="Unfiled Bookmarks">' + "\n";
-		iterate(abm.unfiled, true);
-		data += '</outline>';
-		data += '</body>' + "\n";
-		data += '</opml>';
+		var abm = Application.bookmarks;
 		
-		//convert to utf-8 from native unicode
+		var roots = [ abm.menu, abm.toolbar, abm.unfiled ];
+		
+		for ( var i = 0, _len = roots.length; i < _len; i++ )
+			iterate( roots[i], opmlBody );
+		
+		opmlDocument.documentElement.appendChild( opmlBody );
+		
+		var data = ( new XMLSerializer() ).serializeToString( opmlDocument );
+		data = '<?xml version="1.0" encoding="UTF-8"?>' + "\n" + data;
+		
+		// Convert to utf-8 from native unicode
 		var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].getService(Components.interfaces.nsIScriptableUnicodeConverter);
 		converter.charset = 'UTF-8';
 		data = converter.ConvertFromUnicode(data);
@@ -344,26 +355,6 @@ var OPMLSUPPORT = {
 		else {
 			return fp.file;
 		}
-	},
-	
-	cleanXMLText : function (str) {
-		if (!str) return '';
-		
-		try {
-			var res = [
-				{find : '&', replace : '&amp;'},
-				{find : '"', replace : '&quot;'},
-				{find : '<', replace : '&lt;'},
-				{find : '>', replace : '&gt;'}
-			];
-		
-			for (var i = 0; i < res.length; i++){
-				var re = new RegExp(res[i].find, "g");
-			
-				str = str.replace(re, res[i].replace);
-			}
-		} catch (e) { OPMLSUPPORT.log(str + " " + e); }
-		return str;
 	},
 	
 	/* DEBUG FUNCTIONS */
