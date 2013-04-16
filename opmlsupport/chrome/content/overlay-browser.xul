@@ -4,7 +4,11 @@
 	<script type="application/x-javascript">
 		<![CDATA[
 		
-		addEventListener("load", OPMLSUPPORT_BROWSER.load, false);
+		addEventListener( "load", function () {
+			removeEventListener( "load", arguments.callee, false );
+			
+			OPMLSUPPORT_BROWSER.load();
+		}, false );
 		
 		]]>
 	</script>
