@@ -1,6 +1,6 @@
 rm -rf `find ./ -name ".DS_Store"`
 rm -rf `find ./ -name "Thumbs.db"`
-rm opmlsupport.xpi
+rm -f opmlsupport.xpi
 rm -rf .tmp_xpi_dir/
 
 chmod -R 0777 opmlsupport/
@@ -17,4 +17,4 @@ cd ../
 zip -rq ../opmlsupport.xpi *
 cd ../
 rm -rf .tmp_xpi_dir/
-cp opmlsupport.xpi ~/Desktop/
+mv opmlsupport.xpi ~/Desktop/
