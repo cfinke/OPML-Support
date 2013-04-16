@@ -62,8 +62,6 @@ var OPMLSUPPORT = {
 				this.importLevel(results, null, false, true, true);
 			}
 		}
-		
-		OPMLSUPPORT.reportAllTime();
 	},
 	
 	alert : function (msg) {
@@ -387,12 +385,6 @@ var OPMLSUPPORT = {
 		consoleService.logStringMessage("OPML: " + label + " " + (date.getTime()) + " (" + timeSince + ") (" + timeSinceFirst+ ")");
 	},
 	
-	reportAllTime : function () {
-	    for (var i in this.agg) {
-	        OPMLSUPPORT.log(i + ": " + this.agg[i]);
-        }
-    },
-
 	log : function (message) {
 		var consoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
 		consoleService.logStringMessage("OPML: " + message);
