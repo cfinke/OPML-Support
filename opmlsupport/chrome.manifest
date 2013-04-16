@@ -1,25 +1,25 @@
-content     opml-support     jar:chrome/opmlsupport.jar!/content/
+content     opml-support                     content/
 
-skin        opml-support     classic             jar:chrome/opmlsupport.jar!/skin/winlin/
-skin        opml-support     classic             jar:chrome/opmlsupport.jar!/skin/mac/ os=Darwin
+skin        opml-support     classic             skin/winlin/
+skin        opml-support     classic             skin/mac/ os=Darwin
 
-locale      opml-support     bg-BG               jar:chrome/opmlsupport.jar!/locale/bg-BG/
-locale      opml-support     cs-CZ               jar:chrome/opmlsupport.jar!/locale/cs-CZ/
-locale      opml-support     de                  jar:chrome/opmlsupport.jar!/locale/de/
-locale      opml-support     en-US               jar:chrome/opmlsupport.jar!/locale/en-US/
-locale      opml-support     fr                  jar:chrome/opmlsupport.jar!/locale/fr/
-locale      opml-support     it-IT               jar:chrome/opmlsupport.jar!/locale/it-IT/
-locale      opml-support     ja-JP               jar:chrome/opmlsupport.jar!/locale/ja-JP/
-locale      opml-support     ko-KR               jar:chrome/opmlsupport.jar!/locale/ko-KR/
-locale      opml-support     mk-MK               jar:chrome/opmlsupport.jar!/locale/mk-MK/
-locale      opml-support     nl                  jar:chrome/opmlsupport.jar!/locale/nl/
-locale      opml-support     pl-PL               jar:chrome/opmlsupport.jar!/locale/pl-PL/
-locale      opml-support     pt-BR               jar:chrome/opmlsupport.jar!/locale/pt-BR/
-locale      opml-support     ru-RU               jar:chrome/opmlsupport.jar!/locale/ru-RU/
-locale      opml-support     tr-TR               jar:chrome/opmlsupport.jar!/locale/tr-TR/
-locale      opml-support     uk-UA               jar:chrome/opmlsupport.jar!/locale/uk-UA/
-locale      opml-support     zh-CN               jar:chrome/opmlsupport.jar!/locale/zh-CN/
-locale      opml-support     zh-TW               jar:chrome/opmlsupport.jar!/locale/zh-TW/
+locale      opml-support     bg-BG               locale/bg-BG/
+locale      opml-support     cs-CZ               locale/cs-CZ/
+locale      opml-support     de                  locale/de/
+locale      opml-support     en-US               locale/en-US/
+locale      opml-support     fr                  locale/fr/
+locale      opml-support     it-IT               locale/it-IT/
+locale      opml-support     ja-JP               locale/ja-JP/
+locale      opml-support     ko-KR               locale/ko-KR/
+locale      opml-support     mk-MK               locale/mk-MK/
+locale      opml-support     nl                  locale/nl/
+locale      opml-support     pl-PL               locale/pl-PL/
+locale      opml-support     pt-BR               locale/pt-BR/
+locale      opml-support     ru-RU               locale/ru-RU/
+locale      opml-support     tr-TR               locale/tr-TR/
+locale      opml-support     uk-UA               locale/uk-UA/
+locale      opml-support     zh-CN               locale/zh-CN/
+locale      opml-support     zh-TW               locale/zh-TW/
 
 overlay     chrome://browser/content/browser.xul         chrome://opml-support/content/overlay-browser.xul
 overlay     chrome://browser/content/places/places.xul   chrome://opml-support/content/overlay-places.xul
