@@ -73,8 +73,6 @@ var OPMLSUPPORT = {
 	},
 	
 	importLevel : function(nodes, createIn, nested, links, feeds, feedsAs){
-		var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"];
-
 		var ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
 		var bmsvc = Components.classes["@mozilla.org/browser/nav-bookmarks-service;1"].getService(Components.interfaces.nsINavBookmarksService);
 		var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
@@ -240,7 +238,6 @@ var OPMLSUPPORT = {
 			data += "\t" + '</head>' + "\n";
 			data += "\t" + '<body>' + "\n";
 			
-			var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"];
 			this.doExportOPML_new(file, data, feeds, links, nested, feedMode);
 		}
 		
