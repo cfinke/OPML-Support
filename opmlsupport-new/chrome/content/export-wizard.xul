@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://opml-support/locale/locale.dtd">
+<dialog
+	title="&opmlExport;"
+	buttons="accept,cancel"
+	orient="vertical"
+	style="max-width: 35em;"
+	onload="window.sizeToContent();"
+	ondialogaccept="return acceptDialog();"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<hbox align="center">
+		<label value="&exportQuestion;" for="type"/>
+		<menulist id="type">
+			<menupopup>
+				<menuitem label="&opml.selectAll;" value="all" selected="true" />
+				<menuitem label="&opml.onlyLivemarks;" value="livemarks" />
+				<menuitem label="&opml.onlyBookmarks;" value="bookmarks" />
+			</menupopup>
+		</menulist>
+	</hbox>
+	<groupbox id="feeds-as-links-section" style="display: none;">
+		<description>&feedsAsLinksDesc;</description>
+		<checkbox id="export-feeds-as-links" label="&feedsAsLinksLabel;" checked="false" />
+	</groupbox>
+	<groupbox>
+		<radiogroup id="nested-section">
+			<radio id="export-nested" label="&exportNested;" selected="true" />
+			<radio id="export-flat" label="&exportFlat;" />
+		</radiogroup>
+	</groupbox>
+	<hbox pack="center" style="visibility: hidden;" id="loading-notice">
+		<label value="&opml.loading;" />
+	</hbox>
+	<script type="application/x-javascript">
+		<![CDATA[
+		
+		function typeChange () {
+			var list = document.getElementById('type');
+			
+			if (list.value == 'livemarks'){
+				document.getElementById('feeds-as-links-section').style.display = '';
+			}
+			else if (list.value == 'bookmarks'){
+				document.getElementById('feeds-as-links-section').style.display = 'none';
+			}
+			else if (list.value == 'all'){
+				document.getElementById('feeds-as-links-section').style.display = '';
+			}
+		}
+		
+		document.getElementById('type').addEventListener("ValueChange", function () { typeChange(); window.sizeToContent(); }, false);
+		typeChange();
+		
+		function acceptDialog() {
+			document.getElementById("loading-notice").style.visibility = "visible";
+			setTimeout('continueExport();', 1000);
+			return false;
+		}
+		
+		function continueExport() {
+			var exportType = document.getElementById('type').value;
+			var mode = 'feeds';
+			
+			if (document.getElementById('export-feeds-as-links').checked) {
+				mode = 'links';
+			}
+			
+			if (exportType == 'livemarks'){
+				window.opener.OPMLSUPPORT.doExportOPML(true, false, document.getElementById('export-nested').selected, mode);
+			}
+			else if (exportType == 'bookmarks'){
+				window.opener.OPMLSUPPORT.doExportOPML(false, true, document.getElementById('export-nested').selected);
+			}
+			else {
+				window.opener.OPMLSUPPORT.doExportOPML(true, true, document.getElementById('export-nested').selected, mode);
+			}
+			
+			window.close();
+		}
+		
+		]]>
+	</script>
+</dialog>
+	
+	

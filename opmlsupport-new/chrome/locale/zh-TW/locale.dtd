@@ -1,0 +1,20 @@
+<!ENTITY opml.opmlSupport "OPML Support">
+<!ENTITY opmlExport "匯出 OPML...">
+<!ENTITY opmlImport "匯入 OPML...">
+<!ENTITY exportQuestion "您想要匯出什麼？">
+<!ENTITY opml.selectAll "Everything">
+<!ENTITY opml.onlyLivemarks "Only Live Bookmarks (Feeds)">
+<!ENTITY opml.onlyBookmarks "Only Bookmarks">
+<!ENTITY opml.livemarks "Live Bookmarks (Feeds)">
+<!ENTITY opml.bookmarks "Bookmarks">
+<!ENTITY feedsAsLinksLabel "匯出即時書籤為一般書籤">
+<!ENTITY feedsAsLinksDesc "即時書籤可以匯出成可連結到該訊息的一般書籤">
+<!ENTITY exportNested "匯出時保留書籤架構">
+<!ENTITY exportFlat "匯出連結不包含資料夾訊息">
+<!ENTITY importNestedDesc "OPML 檔包含資料夾訊息">
+<!ENTITY importNestedLabel "新建一個 OPML 資料夾">
+<!ENTITY importFlatLabel "匯入連結不需要創建資料夾">
+<!ENTITY importTypeDesc "OPML 包含許多類型的連結。 哪一種類型您想要匯入？">
+<!ENTITY importLivemarksAsLinksDesc "即時訊息可以匯入成可連結到該訊息的一般書籤">
+<!ENTITY importLivemarksAsLinksLabel "匯入即時書籤為一般書籤">
+<!ENTITY opml.loading "處理書籤中...">

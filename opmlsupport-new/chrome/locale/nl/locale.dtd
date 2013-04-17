@@ -1,0 +1,20 @@
+<!ENTITY opml.opmlSupport "OPML Support">
+<!ENTITY opmlExport "OPML Uitvoer">
+<!ENTITY opmlImport "OPML Invoer">
+<!ENTITY exportQuestion "Wat wilt u exporteren?">
+<!ENTITY opml.selectAll "Everything">
+<!ENTITY opml.onlyLivemarks "Only Live Bookmarks (Feeds)">
+<!ENTITY opml.onlyBookmarks "Only Bookmarks">
+<!ENTITY opml.livemarks "Live Bookmarks (Feeds)">
+<!ENTITY opml.bookmarks "Bookmarks">
+<!ENTITY feedsAsLinksLabel "Exporteer livemarks als bladwijzers">
+<!ENTITY feedsAsLinksDesc "Livemarks kunnen geëxporteerd worden als normale bladwijzers die verwijzen naar de site met de livemark.">
+<!ENTITY exportNested "Behoud mappenstructuur bij exporteren.">
+<!ENTITY exportFlat "Exporteer links zonder mappenstructuur.">
+<!ENTITY importNestedDesc "Het OPML bestand bevat verwijzingen georganiseerd in mappen.">
+<!ENTITY importNestedLabel "Maak mappen aan zoals aangegeven door het OPML bestand.">
+<!ENTITY importFlatLabel "Importeer links zonder mappenstructuur aan te maken.">
+<!ENTITY importTypeDesc "Het OPML bestand bevat meerdere types links. Welke types moeten geimporteerd worden?">
+<!ENTITY importLivemarksAsLinksDesc "Livemarks kunnen geimporteerd worden als normale bladwijzers die verwijzen naar de site met de livemark.">
+<!ENTITY importLivemarksAsLinksLabel "Importeer livemarks als bladwijzers">
+<!ENTITY opml.loading "Processing bookmarks...">
