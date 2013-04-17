@@ -270,7 +270,7 @@ var OPMLSUPPORT = {
 					
 					if ((type == "bookmark") || (type == "folder")){
 						// No separators for us.
-						if ((type == "folder") && (!livemarkService.isLivemark(node.id))) {
+						if ((type == "folder") && (!node.annotations.has('livemark/feedURI'))) {
 							iterate(node);
 						}
 						else {
