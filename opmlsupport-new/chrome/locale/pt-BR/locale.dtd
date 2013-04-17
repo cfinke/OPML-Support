@@ -1,12 +1,6 @@
-<!ENTITY opml.opmlSupport "OPML Support">
-<!ENTITY opmlExport "Exportar OPML…">
-<!ENTITY opmlImport "Importar OPML…">
+<!ENTITY opmlExport "Exportar OPML...">
+<!ENTITY opmlImport "Importar OPML...">
 <!ENTITY exportQuestion "O que você deseja exportar?">
-<!ENTITY opml.selectAll "Everything">
-<!ENTITY opml.onlyLivemarks "Only Live Bookmarks (Feeds)">
-<!ENTITY opml.onlyBookmarks "Only Bookmarks">
-<!ENTITY opml.livemarks "Live Bookmarks (Feeds)">
-<!ENTITY opml.bookmarks "Bookmarks">
 <!ENTITY feedsAsLinksLabel "Exportar livemarks como favoritos">
 <!ENTITY feedsAsLinksDesc "RSS podem ser importados como favoritos normais que direcionam para o site que provê o feed.">
 <!ENTITY exportNested "Manter estrutura de pasta quando exportar.">
@@ -17,4 +11,4 @@
 <!ENTITY importTypeDesc "O arquivo OPML contém diversos tipos de links. Quais tipos deveriam ser importados?">
 <!ENTITY importLivemarksAsLinksDesc "RSS podem ser importados como favoritos normais que direciona para o site que provê o feed.">
 <!ENTITY importLivemarksAsLinksLabel "Importar RSS como favoritos">
-<!ENTITY opml.loading "Processando favoritos…">
+<!ENTITY opml.loading "Processando favoritos...">

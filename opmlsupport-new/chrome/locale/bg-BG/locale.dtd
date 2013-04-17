@@ -1,12 +1,7 @@
-<!ENTITY opml.opmlSupport "OPML Support">
 <!ENTITY opmlExport "Изнасяне на OPML...">
 <!ENTITY opmlImport "Внасяне на OPML...">
 <!ENTITY exportQuestion "Какво искате да изнесете?">
 <!ENTITY opml.selectAll "Everything">
-<!ENTITY opml.onlyLivemarks "Only Live Bookmarks (Feeds)">
-<!ENTITY opml.onlyBookmarks "Only Bookmarks">
-<!ENTITY opml.livemarks "Live Bookmarks (Feeds)">
-<!ENTITY opml.bookmarks "Bookmarks">
 <!ENTITY feedsAsLinksLabel "Изнасяне на емисиите като отметки">
 <!ENTITY feedsAsLinksDesc "Емисиите могат да се изнесат като обикновени отметки, сочещи към сайта с емисията.">
 <!ENTITY exportNested "Запазване на структурата и папките при изнасянето">

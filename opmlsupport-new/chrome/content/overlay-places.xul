@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE overlay SYSTEM "chrome://opml-support/locale/locale.dtd">
+<!DOCTYPE overlay [
+	<!ENTITY % localLocale SYSTEM "chrome://opml-support/locale/locale.dtd">
+	%localLocale;
+	<!ENTITY % backupLocale SYSTEM "chrome://opml-support-default-locale/content/locale.dtd">
+	%backupLocale;
+]>
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script type="application/x-javascript" src="chrome://opml-support/content/opml-support.js"></script>
 	<window id="places">
 		<stringbundleset id="stringbundleset">
+			<stringbundle id="opml-support-backup-bundle" src="chrome://opml-support-default-locale/content/locale.properties" />
 			<stringbundle id="opml-support-bundle" src="chrome://opml-support/locale/locale.properties" />
 		</stringbundleset>
 		<commandset id="mainCommandSet">

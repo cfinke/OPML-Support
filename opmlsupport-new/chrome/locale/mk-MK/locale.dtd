@@ -1,12 +1,6 @@
-<!ENTITY opml.opmlSupport "OPML Support">
 <!ENTITY opmlExport "Изнеси OPML...">
 <!ENTITY opmlImport "Внеси OPML...">
 <!ENTITY exportQuestion "Што сакате да изнесите?">
-<!ENTITY opml.selectAll "Everything">
-<!ENTITY opml.onlyLivemarks "Only Live Bookmarks (Feeds)">
-<!ENTITY opml.onlyBookmarks "Only Bookmarks">
-<!ENTITY opml.livemarks "Live Bookmarks (Feeds)">
-<!ENTITY opml.bookmarks "Bookmarks">
 <!ENTITY feedsAsLinksLabel "Изнеси ги livemarks како обележувачи">
 <!ENTITY feedsAsLinksDesc "Livemarks можат да бидат изнесени како нормални обележувачи кои поврзуваат до страницата што обезбедува дотур(feed).">
 <!ENTITY exportNested "Задржи ја структурата на папката кога се изнесува.">

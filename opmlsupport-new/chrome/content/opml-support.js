@@ -1,5 +1,53 @@
 var OPMLSUPPORT = {
-	get strings() { return document.getElementById("opml-support-bundle"); },
+	strings : {
+		_backup : null,
+		_main : null,
+
+		initStrings : function () {
+			if (!this._backup) { this._backup = document.getElementById("opml-support-backup-bundle"); }
+			if (!this._main) { this._main = document.getElementById("opml-support-bundle"); }
+		},
+
+		getString : function (key) {
+			this.initStrings();
+
+			var rv = "";
+
+			try {
+				rv = this._main.getString(key);
+			} catch (e) {
+			}
+
+			if (!rv) {
+				try {
+					rv = this._backup.getString(key);
+				} catch (e) {
+				}
+			}
+
+			return rv;
+		},
+
+		getFormattedString : function (key, args) {
+			this.initStrings();
+
+			var rv = "";
+
+			try {
+				rv = this._main.getFormattedString(key, args);
+			} catch (e) {
+			}
+
+			if (!rv) {
+				try {
+					rv = this._backup.getFormattedString(key, args);
+				} catch (e) {
+				}
+			}
+
+			return rv;
+		}
+	},
 	
 	importOPML : function () {
 		var nsIFilePicker = Components.interfaces.nsIFilePicker;

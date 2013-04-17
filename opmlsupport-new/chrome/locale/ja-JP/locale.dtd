@@ -1,12 +1,6 @@
-<!ENTITY opml.opmlSupport "OPML Support">
 <!ENTITY opmlExport "OPML エクスポート">
 <!ENTITY opmlImport "OPML インポート">
 <!ENTITY exportQuestion "何をエクスポートしますか?">
-<!ENTITY opml.selectAll "Everything">
-<!ENTITY opml.onlyLivemarks "Only Live Bookmarks (Feeds)">
-<!ENTITY opml.onlyBookmarks "Only Bookmarks">
-<!ENTITY opml.livemarks "Live Bookmarks (Feeds)">
-<!ENTITY opml.bookmarks "Bookmarks">
 <!ENTITY feedsAsLinksLabel "ライブブックマークをブックマークとしてエクスポート">
 <!ENTITY feedsAsLinksDesc "ライブブックマークは、そのライブブックマークを提供するサイトにリンクする、通常のブックマークとしてエクスポートされます。">
 <!ENTITY exportNested "エクスポート時にフォルダ構造を維持">
@@ -17,4 +11,3 @@
 <!ENTITY importTypeDesc "このOPMLファイルは複数の種類のリンクを含んでいます。インポートしたいのはどちらの種類ですか?">
 <!ENTITY importLivemarksAsLinksDesc "ライブブックマークは、そのライブブックマークを提供するサイトにリンクする、通常のブックマークとしてインポートされます。">
 <!ENTITY importLivemarksAsLinksLabel "ライブブックマークをブックマークとしてインポート">
-<!ENTITY opml.loading "Processing bookmarks...">
