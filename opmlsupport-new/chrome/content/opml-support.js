@@ -282,8 +282,8 @@ var OPMLSUPPORT = {
 								var keyword = node.keyword || '';
 							}
 							else {
-								var xmlUrl = livemarkService.getFeedURI(id).spec;
-								try { var url = livemarkService.getSiteURI(id).spec; } catch (e) { var url = xmlUrl; }
+								var xmlUrl = node.annotations.get('livemark/feedURI');
+								var url = node.annotations.get('livemark/siteURI');
 								var keyword = "";
 							}
 						
