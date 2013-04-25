@@ -6,4 +6,4 @@ When exporting, you can choose to export your livemarks, bookmarks, or both. Whe
 
 To use, select Export OPML or Import OPML from the Bookmark Manager window's "Import and Backup" menu.
 
-![Screenshot of OPML Support menu options](http://www.chrisfinke.com/firstrun/images/opml-support/opml-menu-mac.png)
+![Screenshot of OPML Support menu options](screenshots/opml-menu-mac.png)
