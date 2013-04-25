@@ -52,8 +52,6 @@ var OPMLSUPPORT = {
 	importOPML : function () {
 		var nsIFilePicker = Components.interfaces.nsIFilePicker;
 		var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-		fp.appendFilter(this.strings.getString("OPMLFiles"),"*.opml");
-		fp.appendFilter(this.strings.getString("XMLFiles"),"*.opml; *.xml; *.rdf; *.html; *.htm");
 		fp.appendFilter(this.strings.getString("allFiles"),"*");
 
 		fp.init(window, this.strings.getString("selectFile"), nsIFilePicker.modeOpen);
@@ -385,8 +383,6 @@ var OPMLSUPPORT = {
 		var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
 		fp.init(window, this.strings.getString("saveAs"), nsIFilePicker.modeSave);
 		
-		fp.appendFilter(this.strings.getString("OPMLFiles"),"*.opml");
-		fp.appendFilter(this.strings.getString("XMLFiles"),"*.opml; *.xml; *.rdf; *.html; *.htm");
 		fp.appendFilter(this.strings.getString("allFiles"),"*");
 		
 		fp.defaultString = filePrefix + ".opml";
