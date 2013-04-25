@@ -17,34 +17,9 @@
 			<command id="opml-support-export" oncommand="OPMLSUPPORT.exportOPML();" />
 		</commandset>
 	</window>
-	<menubar id="placesMenu">
-		<menu id="opmlMenu" class="menu-iconic" label="&opml.opmlSupport;" accesskey="S" style="list-style-image: url(chrome://opml-support/skin/opml-icon-16x16.png);">
-			<menupopup>
-				<menuitem label="&opmlImport;" command="opml-support-import" />
-				<menuitem label="&opmlExport;" command="opml-support-export" />
-			</menupopup>
-		</menu>
-	</menubar>
-	<toolbar id="placesToolbar">
-		<toolbarbutton id="opmlButton" class="tabbable" label="&opml.opmlSupport;" type="menu" insertafter="maintenanceButton" style="list-style-image: url(chrome://opml-support/skin/opml-icon-16x16.png);">
-			<menupopup>
-				<menuitem label="&opmlImport;" command="opml-support-import" />
-				<menuitem label="&opmlExport;" command="opml-support-export" />
-			</menupopup>
-		</toolbarbutton>
-	</toolbar>
-	<script type="application/x-javascript">
-		<![CDATA[
-		
-		addEventListener("load", function () {
-				if (document.getElementById("placesMenu")) {
-					document.getElementById("opmlButton").parentNode.removeChild(document.getElementById("opmlButton"));
-				}
-				else {
-				    document.getElementById("opmlButton").hidden = false;
-				}
-			}, false);
-		
-		]]>
-	</script>
+	<menupopup id="maintenanceButtonPopup">
+		<menuitem label="&opmlExport;" command="opml-support-export" insertafter="fileExport"  />
+		<menuitem label="&opmlImport;" command="opml-support-import" insertafter="fileExport" />
+		<menuseparator insertafter="fileExport" />
+	</menupopup>
 </overlay>
