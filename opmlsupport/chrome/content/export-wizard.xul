@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<!DOCTYPE overlay SYSTEM "chrome://opml-support/locale/locale.dtd">
+<!DOCTYPE overlay [
+	<!ENTITY % localLocale SYSTEM "chrome://opml-support/locale/locale.dtd">
+	%localLocale;
+	<!ENTITY % backupLocale SYSTEM "chrome://opml-support-default-locale/content/locale.dtd">
+	%backupLocale;
+]>
 <dialog
 	title="&opmlExport;"
 	buttons="accept,cancel"

@@ -1,6 +1,7 @@
 <!ENTITY opmlExport "Изнасяне на OPML...">
 <!ENTITY opmlImport "Внасяне на OPML...">
 <!ENTITY exportQuestion "Какво искате да изнесете?">
+<!ENTITY opml.selectAll "Everything">
 <!ENTITY feedsAsLinksLabel "Изнасяне на емисиите като отметки">
 <!ENTITY feedsAsLinksDesc "Емисиите могат да се изнесат като обикновени отметки, сочещи към сайта с емисията.">
 <!ENTITY exportNested "Запазване на структурата и папките при изнасянето">

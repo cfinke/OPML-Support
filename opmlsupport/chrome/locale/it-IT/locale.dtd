@@ -1,5 +1,5 @@
-<!ENTITY opmlExport "Esporta OPML…">
-<!ENTITY opmlImport "Importa OPML…">
+<!ENTITY opmlExport "Esporta OPML...">
+<!ENTITY opmlImport "Importa OPML...">
 <!ENTITY exportQuestion "Elementi da esportare:">
 <!ENTITY feedsAsLinksLabel "Esporta i segnalibri Live come segnalibri">
 <!ENTITY feedsAsLinksDesc "I segnalibri Live possono essere esportati come normali segnalibri che collegano al sito che li fornisce">
@@ -11,4 +11,4 @@
 <!ENTITY importTypeDesc "Il file OPML contiene molteplici tipi di link. Scegliere quali importare">
 <!ENTITY importLivemarksAsLinksDesc "I segnalibri Live possono essere importati come normali segnalibri che collegano al sito che li fornisce">
 <!ENTITY importLivemarksAsLinksLabel "Importa i segnalibri Live come segnalibri">
-<!ENTITY opml.loading "Elaborazione dei segnalibri in corso…">
+<!ENTITY opml.loading "Elaborazione dei segnalibri in corso...">

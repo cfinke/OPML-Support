@@ -1,5 +1,5 @@
-<!ENTITY opmlExport "Экспортировать OPML…">
-<!ENTITY opmlImport "Импортировать OPML…">
+<!ENTITY opmlExport "Экспортировать OPML...">
+<!ENTITY opmlImport "Импортировать OPML...">
 <!ENTITY exportQuestion "Что нужно экспортировать?">
 <!ENTITY feedsAsLinksLabel "Экспортировать ленты новостей как закладки">
 <!ENTITY feedsAsLinksDesc "Ленты новостей могут быть экспортированы как обыкновенные закладки указывающие на сайт который предоставляет ленту.">
@@ -11,4 +11,4 @@
 <!ENTITY importTypeDesc "Файл OPML содержит разные типы ссылок. Ссылки какого типа нужно импортировать?">
 <!ENTITY importLivemarksAsLinksDesc "Закладки Livemarks могут быть импортированы как обыкновенные закладки, указывающие на сайт, предоставляющий ленту новостей.">
 <!ENTITY importLivemarksAsLinksLabel "Импортировать Livemarks закладки как обыкновенные закладки">
-<!ENTITY opml.loading "Закладки обрабатываются…">
+<!ENTITY opml.loading "Закладки обрабатываются...">

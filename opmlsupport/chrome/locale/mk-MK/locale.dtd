@@ -1,8 +1,6 @@
-<!ENTITY opml.opmlSupport "OPML Поддршка">
 <!ENTITY opmlExport "Изнеси OPML...">
 <!ENTITY opmlImport "Внеси OPML...">
 <!ENTITY exportQuestion "Што сакате да изнесите?">
-<!ENTITY opml.selectAll "Се">
 <!ENTITY feedsAsLinksLabel "Изнеси ги livemarks како обележувачи">
 <!ENTITY feedsAsLinksDesc "Livemarks можат да бидат изнесени како нормални обележувачи кои поврзуваат до страницата што обезбедува дотур(feed).">
 <!ENTITY exportNested "Задржи ја структурата на папката кога се изнесува.">
