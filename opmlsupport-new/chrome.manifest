@@ -2,8 +2,7 @@ content     opml-support                         chrome/content/
 
 content     opml-support-default-locale          chrome/locale/en-US/
 
-skin        opml-support     classic             chrome/skin/winlin/
-skin        opml-support     classic             chrome/skin/mac/ os=Darwin
+skin        opml-support     classic             chrome/skin/
 
 locale      opml-support     bg-BG               chrome/locale/bg-BG/
 locale      opml-support     cs-CZ               chrome/locale/cs-CZ/
