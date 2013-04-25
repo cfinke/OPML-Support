@@ -6,8 +6,8 @@
 		<em:version>2</em:version>
 		<em:description>Adds OPML import/export functionality to the Firefox Bookmarks Manager.</em:description>
 		<em:creator>Christopher Finke</em:creator>
-		<em:iconURL>chrome://opml-support/content/skin-common/opml-icon-48x48.png</em:iconURL>
-		<em:icon64URL>chrome://opml-support/content/skin-common/opml-icon-64x64.png</em:icon64URL>
+		<em:iconURL>chrome://opml-support/skin/opml-icon-48x48.png</em:iconURL>
+		<em:icon64URL>chrome://opml-support/skin/opml-icon-64x64.png</em:icon64URL>
 		<em:homepageURL>http://www.chrisfinke.com/addons/opml-support/</em:homepageURL>
 		
 		<!-- Firefox -->
