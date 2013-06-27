@@ -121,12 +121,9 @@ var OPMLSUPPORT = {
 	},
 	
 	importLevel : function(nodes, createIn, nested, links, feeds, feedsAs){
-		var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"];
-
 		var ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
 		var bmsvc = Components.classes["@mozilla.org/browser/nav-bookmarks-service;1"].getService(Components.interfaces.nsINavBookmarksService);
 		var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
-		var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"].getService(Components.interfaces.nsILivemarkService);
 		
 		if (!feedsAs) feedsAs = 'feeds';
 		
@@ -178,8 +175,20 @@ var OPMLSUPPORT = {
 					if (feeds && (nodeType == 'feed' || nodeType == 'atom')){
 						if (feedsAs == 'feeds'){
 							var feedUri = ioService.newURI(node.feedURL, null, null);
-							var lm = livemarkService.createLivemarkFolderOnly(createIn.id, nodeTitle, uri, feedUri, -1);
-							annotationService.setItemAnnotation(lm, "bookmarkProperties/description", nodeDesc, 0, Components.interfaces.nsIAnnotationService.EXPIRE_NEVER);
+							var lm = PlacesUtils.livemarks.addLivemark(
+								{
+									title : nodeTitle,
+									feedURI : feedUri,
+									parentId : createIn.id,
+									index : -1,
+									siteURI : uri
+								},
+								(function(aStatus, aLivemark) {
+									if (Components.isSuccessCode(aStatus)) {
+										PlacesUtils.setAnnotationsForItem( aLivemark.id, [ { name : "bookmarkProperties/description", vaule : nodeDesc, expires : Components.interfaces.nsIAnnotationService.EXPIRE_NEVER } ] );
+									}
+								})
+							);
 						}
 						else {
 							var bm = createIn.addBookmark(nodeTitle, uri);
@@ -288,7 +297,6 @@ var OPMLSUPPORT = {
 			data += "\t" + '</head>' + "\n";
 			data += "\t" + '<body>' + "\n";
 			
-			var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"];
 			this.doExportOPML_new(file, data, feeds, links, nested, feedMode);
 		}
 		
@@ -298,7 +306,6 @@ var OPMLSUPPORT = {
 	doExportOPML_new : function (file, data, feeds, links, nested, feedMode) {
 		var level = 0;
 		var annotationService = Components.classes["@mozilla.org/browser/annotation-service;1"].getService(Components.interfaces.nsIAnnotationService);
-		var livemarkService = Components.classes["@mozilla.org/browser/livemark-service;2"].getService(Components.interfaces.nsILivemarkService);
 
 		function iterate(root, isBase) {
 			if (!isBase && nested) {
